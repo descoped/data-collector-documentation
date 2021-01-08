@@ -1,0 +1,23 @@
+= Developer Guide
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:toc-placement: preamble
+endif::[]
+
+
+== Builder
+
+ifdef::env-github[]
+== Class diagram
+image::diagrams/builder-class-diagram.png[alt="Builder Class Diagram", max-width=1024]
+endif::[]
+
+ifndef::env-github[]
+== Class diagram
+plantuml::puml/builder-class-diagram.puml[format=svg, alt="Builder Class Diagram", max-width=1024]
+endif::[]

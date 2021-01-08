@@ -49,6 +49,7 @@ ifdef::env-github[]
 . link:docs/architecture.adoc[Architecture]
 . link:docs/administration.adoc[Administration]
 . link:docs/rest-api.adoc[REST API]
+. link:docs/developer-guide.adoc[Developer Guide]
 endif::[]
 
 ifndef::env-github[]
@@ -57,6 +58,7 @@ include::gettingstarted.adoc[]
 include::architecture.adoc[]
 include::administration.adoc[]
 include::rest-api.adoc[]
+include::developer-guide.adoc[]
 :leveloffset: -1
 endif::[]
 
