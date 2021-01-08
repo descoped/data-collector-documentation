@@ -1,0 +1,59 @@
+@startuml
+
+interface Base #EEE {
+}
+interface Leaf #EEE {
+}
+interface Node #EEE {
+}
+interface Type {
+    getters
+}
+
+Base <|-down- Leaf
+Base <|-down- Node
+Node <|-down- Type
+Type <|-- TypeNode
+
+abstract class AbstractBaseNode #EEE
+abstract class FlowNode #EEE
+abstract class LeafNode #EEE
+abstract class FlowNodeWithId #EEE
+class TypeNode {
+    getters
+}
+
+AbstractBaseNode <|-up- FlowNode
+AbstractBaseNode <|-up- LeafNode
+FlowNode <|-up- FlowNodeWithId
+FlowNodeWithId <|-up- TypeNode
+
+
+
+abstract class AbstractBuilder #EEE
+abstract class NodeBuilder #EEE
+abstract class LeafNodeBuilder #EEE
+abstract class NodeWithIdBuilder #EEE
+class TypeBuilder < @JsonDeserialize(using = NodeBuilderDeserializer.class) > {
+    setters
+    Type build()
+}
+
+TypeBuilder *-- Type
+AbstractBuilder <|-- LeafNodeBuilder
+AbstractBuilder <|-- NodeBuilder
+NodeBuilder <|-- NodeWithIdBuilder
+NodeWithIdBuilder <|-down- TypeBuilder
+
+
+abstract class AbstractHandler #EEE
+abstract class AbstractNodeHandler #EEE extends AbstractHandler
+
+class TypeHandler<Type> extends AbstractNodeHandler {
+    ExecutionContext execute(ExecutionContext context)
+}
+
+TypeHandler *- Type
+TypeHandler <|.. TypeNode
+
+@enduml
