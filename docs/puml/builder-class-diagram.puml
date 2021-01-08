@@ -39,7 +39,7 @@ class TypeBuilder < @JsonDeserialize(using = NodeBuilderDeserializer.class) > {
     Type build()
 }
 
-TypeBuilder *-- Type
+TypeBuilder *-left- Type
 AbstractBuilder <|-- LeafNodeBuilder
 AbstractBuilder <|-- NodeBuilder
 NodeBuilder <|-- NodeWithIdBuilder
