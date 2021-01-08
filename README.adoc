@@ -1,0 +1,88 @@
+// suppress inspection "AsciiDocLinkResolve" for whole file
+
+// Asciidoc Cheat Sheet: https://github.com/powerman/asciidoc-cheatsheet
+// Asciidoc Manual: https://asciidoctor.org/docs/user-manual/
+// Asciidoc PlantUML: https://asciidoctor.org/news/2014/02/18/plain-text-diagrams-in-asciidoctor/
+
+:doctitle: Data Collector
+:docdir: ./docs/
+
+ifndef::env-github[]
+:doctype: book
+:page-layout: docs
+:numbered:
+:toc: left
+:toclevels: 3
+:factory-ref: https://github.com/asciidoctor/asciidoctor-stylesheet-factory
+:uri-svgo: https://github.com/svg/svgo
+//:source-highlighter: highlightjs
+:source-highlighter: coderay
+:coderay-linenums-mode: inline
+:coderay-css: class
+:icons: font
+endif::[]
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:toc-placement: preamble
+endif::[]
+
+[NOTE]
+====
+This documentation is immature and work in progress!
+====
+
+The Data Collector (DC) is a framework for consuming REST APIs where collected data is written to streams. The DC executes a declarative Specification at runtime that describes how data should be collected. The Specification is built using a well defined DSL.
+
+Example of use: https://github.com/statisticsnorway/data-collection-consumer-specifications[Statistics Norway's Consumer Specifications].
+
+Explore other https://github.com/statisticsnorway?utf8=%E2%9C%93&q=data-collector&type=&language=[Data Collector Projects] at GitHub.
+
+ifdef::env-github[]
+= Table of Contents
+
+. link:docs/gettingstarted.adoc[Getting started]
+. link:docs/architecture.adoc[Architecture]
+. link:docs/administration.adoc[Administration]
+. link:docs/rest-api.adoc[REST API]
+endif::[]
+
+ifndef::env-github[]
+:leveloffset: +1
+include::gettingstarted.adoc[]
+include::architecture.adoc[]
+include::administration.adoc[]
+include::rest-api.adoc[]
+:leveloffset: -1
+endif::[]
+
+== Roadmap
+
+* Generic builder deserializer (required for decoupling of _core_ and _api consumer specification_)
+* Task scheduler (schedule a worker that executes a specification)
+* Improve test coverage
+* Improve code base
+
+== Known issues
+
+* CorrelationId is not generated correctly
+* Capture last event-list on entry HttpErrorException
+
+== New and improved features
+
+* Implemented `JqPathHandler` using Jackson-JQ to support Json Path in the DSL
+* Added `bodyContains` to Query DSL to support false negative intentionally, e.g. 404 with a response semantics that should be treated as success, will not cause the collector to fail fast. Please note: existing consumer specifications in json or yaml format, must be updated due to changes in the DSL.
+* Java 11 HttpClient causes severe memory leaks, which was fixed in Java 13. Consequently the Data Collector now requires Java 13+
+* Moved to JUnit 5. Implemented an extension where the test server lifecycle is managed by the `ExtensionContext.Store`. This alleviates the lack of enforced JPMS due to incompatibility between TestNG and Surefire. The latest surefire version 3.0.0-M4 is compatible with JUnit 5 and offers better compatibility with JPMS.
+* Major improvement to the `MockDataController` that provides internal resources ("api simulation") for testing. `FreemarkerTemplateEngine` is used for simplicity/readability and increased maintainability of api simulations.
+
+
+
+== License
+
+This software is licensed under link:LICENSE[APL 2.0]
+

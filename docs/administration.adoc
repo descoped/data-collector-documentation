@@ -1,0 +1,48 @@
+= Administration
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:toc-placement: preamble
+endif::[]
+
+
+== Configuration
+
+.Configuration properties
+|===
+|Key |Default value |Description
+
+|http.host
+|0.0.0.0
+|Binds default loopback and private IP
+
+|http.port
+|9990
+|Binds default IP port
+
+|http.prefix
+|/
+|Path prefix
+
+|http.cors.allow.origin
+|*
+|Constrain what hosts should have access to the web server
+
+|data.collector.worker.threads
+|number of cpu cores + 2
+|Numer of fixed threads available in thread pool.
+
+|content.stream.connector
+|discarding \| rawdata
+|Configures the content stream connector.
+
+|rawdata.client.provider
+|postgres
+|Supported rawdata stream providers are: `memory`, `postgres` or `kafka`.
+
+|===
+

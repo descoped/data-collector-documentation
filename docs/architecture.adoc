@@ -1,0 +1,90 @@
+= Architecture
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:toc-placement: preamble
+endif::[]
+
+
+== Pre-requisites
+
+* Java 15+
+* Docker CE 18+
+* Docker Compose 1.2x+
+
+== Modules
+
+The Data Collector uses JPMS (module system) for strong encapsulation, security and maintenance.
+
+.modules
+[cols="<,^,^,<", options="header"]
+|===
+|Module name |Status |Badges |Description
+
+
+|https://github.com/statisticsnorway/data-collector-api[data-collector-api]
+|Stable
+|https://dev.azure.com/statisticsnorway/Dapla/_build?definitionId=60[image:https://dev.azure.com/statisticsnorway/Dapla/_apis/build/status/data-collector/statisticsnorway.data-collector-api?repoName=statisticsnorway%2Fdata-collector-api&branchName=master[Build Status]]
+image:https://api.codacy.com/project/badge/Grade/b385055ffe4b4c12860b948da1e63bd5["Codacy code quality", link="https://www.codacy.com/manual/oranheim/data-collector-api?utm_source=github.com&utm_medium=referral&utm_content=statisticsnorway/data-collector-api&utm_campaign=Badge_Grade"]
+https://codecov.io/gh/statisticsnorway/data-collector-api[image:https://codecov.io/gh/statisticsnorway/data-collector-api/branch/master/graph/badge.svg[codecov]]
+|Builders and interfaces
+
+|https://github.com/statisticsnorway/data-collector-core[data-collector-core]
+|Stable
+|https://dev.azure.com/statisticsnorway/Dapla/_build?definitionId=68[image:https://dev.azure.com/statisticsnorway/Dapla/_apis/build/status/data-collector/statisticsnorway.data-collector-core?repoName=statisticsnorway%2Fdata-collector-core&branchName=master[Build Status]]
+image:https://api.codacy.com/project/badge/Grade/0ea1df7767224304967fd7bf90459df5["Codacy code quality", link="https://www.codacy.com/manual/oranheim/data-collector-core?utm_source=github.com&utm_medium=referral&utm_content=statisticsnorway/data-collector-core&utm_campaign=Badge_Grade"]
+https://codecov.io/gh/statisticsnorway/data-collector-core[image:https://codecov.io/gh/statisticsnorway/data-collector-core/branch/master/graph/badge.svg[codecov]]
+|Graph handlers and Executor
+
+|https://github.com/statisticsnorway/data-collector-javascript-processor[data-collector-javascript-processor]
+|Incomplete
+|https://dev.azure.com/statisticsnorway/Dapla/_build?definitionId=66[image:https://dev.azure.com/statisticsnorway/Dapla/_apis/build/status/data-collector/statisticsnorway.data-collector-javascript-processor?repoName=statisticsnorway%2Fdata-collector-javascript-processor&branchName=master[Build Status]]
+image:https://api.codacy.com/project/badge/Grade/59ebea4bd20247f49a546bc7e7f5722a["Codacy code quality", link="https://www.codacy.com/manual/oranheim/data-collector-javascript-processor?utm_source=github.com&utm_medium=referral&utm_content=statisticsnorway/data-collector-javascript-processor&utm_campaign=Badge_Grade"]
+https://codecov.io/gh/statisticsnorway/data-collector-javascript-processor[image:https://codecov.io/gh/statisticsnorway/data-collector-javascript-processor/branch/master/graph/badge.svg[codecov]]
+|Javascript processors
+
+|https://github.com/statisticsnorway/data-collector-connector-content-stream-rawdata[data-collector-connector-content-stream-rawdata]
+|Stable
+|https://dev.azure.com/statisticsnorway/Dapla/_build?definitionId=61[image:https://dev.azure.com/statisticsnorway/Dapla/_apis/build/status/data-collector/statisticsnorway.data-collector-connector-content-stream-rawdata?repoName=statisticsnorway%2Fdata-collector-connector-content-stream-rawdata&branchName=master[Build Status]]
+image:https://api.codacy.com/project/badge/Grade/19c7b49d1711437c9d1061fddf9a2220["Codacy code quality", link="https://www.codacy.com/manual/oranheim/data-collector-connector-content-stream-rawdata?utm_source=github.com&utm_medium=referral&utm_content=statisticsnorway/data-collector-connector-content-stream-rawdata&utm_campaign=Badge_Grade"]
+https://codecov.io/gh/statisticsnorway/data-collector-connector-content-stream-rawdata[image:https://codecov.io/gh/statisticsnorway/data-collector-connector-content-stream-rawdata/branch/master/graph/badge.svg[codecov]]
+|Connector for Rawdata Streams
+
+|https://github.com/statisticsnorway/data-collector-server-base[data-collector-server-base]
+|Stable
+|https://dev.azure.com/statisticsnorway/Dapla/_build?definitionId=65[image:https://dev.azure.com/statisticsnorway/Dapla/_apis/build/status/data-collector/statisticsnorway.data-collector-server-base?repoName=statisticsnorway%2Fdata-collector-server-base&branchName=master[Build Status]]
+image:https://api.codacy.com/project/badge/Grade/0637c9747680459c87fa8f237e5ecff7["Codacy code quality", link="https://www.codacy.com/manual/oranheim/data-collector-server-base?utm_source=github.com&utm_medium=referral&utm_content=statisticsnorway/data-collector-server-base&utm_campaign=Badge_Grade"]
+https://codecov.io/gh/statisticsnorway/data-collector-server-base[image:https://codecov.io/gh/statisticsnorway/data-collector-server-base/branch/master/graph/badge.svg[codecov]]
+|Data collector application
+
+|https://github.com/statisticsnorway/data-collector-docker[data-collector-docker]
+|Work in progress
+|https://dev.azure.com/statisticsnorway/Dapla/_build?definitionId=69[image:https://dev.azure.com/statisticsnorway/Dapla/_apis/build/status/data-collector/statisticsnorway.data-collector-docker?repoName=statisticsnorway%2Fdata-collector-docker&branchName=master[Build Status]]
+image:https://api.codacy.com/project/badge/Grade/fa233ed462d64bbe8093fe134d2175c9["Codacy code quality", link="https://www.codacy.com/manual/oranheim/data-collector-docker?utm_source=github.com&utm_medium=referral&utm_content=statisticsnorway/data-collector-docker&utm_campaign=Badge_Grade"]
+https://codecov.io/gh/statisticsnorway/data-collector-docker[image:https://codecov.io/gh/statisticsnorway/data-collector-docker/branch/master/graph/badge.svg[codecov]]
+|Docker image with embedded web server
+
+|https://github.com/statisticsnorway/data-collector-testutils[data-collector-testutils]
+|Stable
+|https://dev.azure.com/statisticsnorway/Dapla/_build?definitionId=59[image:https://dev.azure.com/statisticsnorway/Dapla/_apis/build/status/data-collector/statisticsnorway.data-collector-testutils?repoName=statisticsnorway%2Fdata-collector-testutils&branchName=master[Build Status]]
+image:https://api.codacy.com/project/badge/Grade/9c83ed6e8d0943609a793b2012879197["Codacy code quality", link="https://www.codacy.com/manual/oranheim/data-collector-testutils?utm_source=github.com&utm_medium=referral&utm_content=statisticsnorway/data-collector-testutils&utm_campaign=Badge_Grade"]
+https://codecov.io/gh/statisticsnorway/data-collector-testutils[image:https://codecov.io/gh/statisticsnorway/data-collector-testutils/branch/master/graph/badge.svg[codecov]]
+|Test server with mock data
+
+|https://github.com/statisticsnorway/data-collector-samples[data-collector-samples]
+|Stable
+|https://dev.azure.com/statisticsnorway/Dapla/_build?definitionId=70[image:https://dev.azure.com/statisticsnorway/Dapla/_apis/build/status/data-collector/statisticsnorway.data-collector-samples?repoName=statisticsnorway%2Fdata-collector-samples&branchName=master[Build Status]]
+image:https://api.codacy.com/project/badge/Grade/75fe8cc3286241afbc19fdebecf95c72["Codacy code quality", link="https://www.codacy.com/manual/oranheim/data-collector-samples?utm_source=github.com&utm_medium=referral&utm_content=statisticsnorway/data-collector-samples&utm_campaign=Badge_Grade"]
+|Examples
+
+|https://github.com/statisticsnorway/data-collection-consumer-specifications[data-collection-consumer-specifications]
+|Stable
+|image:https://api.codacy.com/project/badge/Grade/23e1c75406a744bd919b202f01d9e105["Codacy code quality", link="https://www.codacy.com/manual/oranheim/data-collection-consumer-specifications?utm_source=github.com&utm_medium=referral&utm_content=statisticsnorway/data-collection-consumer-specifications&utm_campaign=Badge_Grade"]
+|Statistics Norway's Consumer Specifications for API Data Collection.
+
+|===
+
