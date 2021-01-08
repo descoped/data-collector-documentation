@@ -14,7 +14,7 @@ endif::[]
 
 ifdef::env-github[]
 == Sequence diagram
-image::diagrams/rest-sequence-diagram.png[alt="Data Read Success", max-width=1024]
+image::diagrams/rest-sequence-diagram.svg[alt="Data Read Success", max-width=1024]
 endif::[]
 
 ifndef::env-github[]

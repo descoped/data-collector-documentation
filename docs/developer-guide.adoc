@@ -14,7 +14,7 @@ endif::[]
 
 ifdef::env-github[]
 == Class diagram
-image::diagrams/builder-class-diagram.png[alt="Builder Class Diagram", max-width=1024]
+image::diagrams/builder-class-diagram.svg[alt="Builder Class Diagram", max-width=1024]
 endif::[]
 
 ifndef::env-github[]

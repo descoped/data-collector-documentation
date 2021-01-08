@@ -27,7 +27,7 @@ do
 done
 
 # Convert folder
-java -jar "$JAR_FILE" -progress "$SOURCE_FOLDER" -o "$DOCS_TARGET_FOLDER"
+java -jar "$JAR_FILE" -progress -tsvg "$SOURCE_FOLDER" -o "$DOCS_TARGET_FOLDER"
 
 # Generate AsciiDoc
 asciidoctor -r asciidoctor-diagram -a allow-uri-read -b html5 -a linkcss -B $PWD/docs/ README.adoc -D $PWD/target/
