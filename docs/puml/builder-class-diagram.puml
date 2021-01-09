@@ -6,13 +6,16 @@ interface Leaf #EEE {
 }
 interface Node #EEE {
 }
+interface NodeWithId #EEE {
+}
 interface Type {
     getters
 }
 
 Base <|-down- Leaf
 Base <|-down- Node
-Node <|-down- Type
+Node <|-down- NodeWithId
+NodeWithId <|-down- Type
 Type <|-- TypeNode
 
 abstract class AbstractBaseNode #EEE

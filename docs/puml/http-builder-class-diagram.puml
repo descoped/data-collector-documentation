@@ -1,0 +1,86 @@
+@startuml
+
+interface NodeWithId #DDD
+interface Operation extends NodeWithId {
+    String url()
+    Headers headers()
+    List<Validator> responseValidators()
+    List<? extends Node> steps()
+    List<String> returnVariables()
+    --
+}
+interface Get {
+    List<HttpStatusRetryWhile> retryWhile()
+}
+interface Put {
+    BodyPublisher bodyPublisher()
+}
+interface Post {
+    BodyPublisher bodyPublisher()
+}
+interface Delete {
+}
+
+Operation <|-- Get
+Operation <|--- Put
+Operation <|--- Post
+Operation <|-- Delete
+
+abstract class FlowNodeWithId #DDD
+abstract class OperationNode <Operation>
+class GetNode <Get> extends OperationNode
+class PutNode <Put> extends OperationNode
+class PostNode <Post> extends OperationNode
+class DeleteNode <Delete> extends OperationNode
+
+FlowNodeWithId <|-- OperationNode
+
+abstract class NodeWithIdBuilder #DDD
+abstract class OperationBuilder<TYPE extends OperationNode> {
+    this(BuilderType)
+    --
+    TYPE build()
+}
+class GetBuilder {
+    super(BuilderType.Get)
+}
+class PutBuilder {
+    super(BuilderType.Put)
+}
+class PostBuilder {
+    super(BuilderType.Post)
+}
+class DeleteBuilder {
+    super(BuilderType.Delete)
+}
+
+NodeWithIdBuilder <|-- OperationBuilder
+OperationBuilder <|-- GetBuilder
+OperationBuilder <|-- PutBuilder
+OperationBuilder <|-- PostBuilder
+OperationBuilder <|-- DeleteBuilder
+
+
+abstract AbstractNodeHandler #DDD
+abstract OperationHandler<TYPE extends Operation> extends AbstractNodeHandler {
+    this(TYPE)
+}
+class GetHandler<Get> extends OperationHandler {
+    super(Get)
+}
+class PutHandler<Put> extends OperationHandler {
+    super(Put)
+}
+class PostHandler<Post> extends OperationHandler {
+    super(Post)
+}
+class DeleteHandler<Delete> extends OperationHandler {
+    super(Delete)
+}
+
+OperationBuilder *---- Operation
+
+OperationHandler *-left-- Operation
+OperationHandler <|..... OperationNode
+
+@enduml
