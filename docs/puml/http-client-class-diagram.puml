@@ -93,7 +93,7 @@ package java.httpClient.native #EEE {
     class HttpResponseDelegate.ResponseBuilder
 }
 
-package java.httpBodySubscriber.native #EEE {
+package http.bodySubscriber #EEE {
     class FileBodyHandler<Path> <<BodyHandler>>
     class TempFileBodyHandler<Path> <<FileBodyHandler>>
 }
@@ -101,13 +101,13 @@ package java.httpBodySubscriber.native #EEE {
 BodyHandler <|-up- FileBodyHandler
 FileBodyHandler <|-up- TempFileBodyHandler
 
-Response <|-- HttpResponseDelegate
-Response.Builder <|-- HttpResponseDelegate.ResponseBuilder
+Response <|--- HttpResponseDelegate
+Response.Builder <|--- HttpResponseDelegate.ResponseBuilder
 
-Request <|-- HttpRequestDelegate
-Request.Builder <|-- HttpRequestDelegate.RequestBuilder
+Request <|--- HttpRequestDelegate
+Request.Builder <|--- HttpRequestDelegate.RequestBuilder
 
-Client <|-- HttpClientDelegate
-Client.Builder <|-- HttpClientDelegate.ClientBuilder
+Client <|--- HttpClientDelegate
+Client.Builder <|--- HttpClientDelegate.ClientBuilder
 
 @enduml
