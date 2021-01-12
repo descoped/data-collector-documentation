@@ -29,7 +29,7 @@ class SpecificationBuilder <@JsonDeserialize(using = NodeBuilderDeserializer.cla
     String serializeAsYaml()
 }
 
-class ConfigurationBuilder {
+class ConfigurationBuilder <@JsonDeserialize(using = NodeBuilderDeserializer.class)> {
 }
 class SecurityBuilder <@JsonDeserialize(using = NodeBuilderDeserializer.class)> {
 }
@@ -44,8 +44,8 @@ diamond -up "to 0..* " NodeBuilderDeserializer
 Specification *-- NodeBuilderDeserializer : deserialize()
 LeafNodeBuilder <|-- AbstractBuilder
 ConfigurationBuilder <|-- LeafNodeBuilder
-SecurityBuilder <|-up-- ConfigurationBuilder
-SpecificationContextBuilder <|-r- ConfigurationBuilder
+SecurityBuilder <|-up[bold]-- ConfigurationBuilder
+SpecificationContextBuilder <|-right[bold]- ConfigurationBuilder
 
 SpecificationBuilder <|-- ConfigurationBuilder
 SpecificationBuilder -up-> Specification : end()
