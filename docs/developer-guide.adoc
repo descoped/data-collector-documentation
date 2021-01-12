@@ -13,6 +13,9 @@ endif::[]
 == Diagrams
 
 ifdef::env-github[]
+== Domain Model Class diagram
+image::diagrams/dsl-diagram.svg[alt="Domain Model Class diagram", max-width=1024, link="diagrams/dsl-diagram.svg"]
+
 == Builder Class diagram
 image::diagrams/builder-class-diagram.svg[alt="Builder Class Diagram", max-width=1024, link="diagrams/builder-class-diagram.svg"]
 
@@ -28,6 +31,9 @@ image::diagrams/http-client-class-diagram.svg[alt="HttpClient Class Diagram", ma
 endif::[]
 
 ifndef::env-github[]
+== Domain Model Class diagram
+plantuml::puml/dsl-diagram.puml[format=svg, alt="Domain Model Class diagram", max-width=1024, link="dsl-diagram.svg"]
+
 == Builder Class diagram
 plantuml::puml/builder-class-diagram.puml[format=svg, alt="Builder Class Diagram", max-width=1024, link="builder-class-diagram.svg"]
 

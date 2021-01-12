@@ -1,4 +1,38 @@
 @startuml
 
+package api.base {
+    interface Base
+    interface Leaf
+    interface Node
+    interface NodeWithId
+
+    Base <|-- Leaf
+    Base <|-- Node
+    Node <|-- NodeWithId
+}
+
+package "api.functions (NodeWithId)" as functions {
+    interface Operation
+    interface Get extends Operation
+    interface Put extends Operation
+    interface Post extends Operation
+    interface Delete extends Operation
+    interface Paginate
+}
+
+package "api.steps (Node)" as steps {
+    interface Execute
+    interface Process
+    interface Sequence
+    interface NextPage
+    interface Parallel
+    interface Publish
+    interface AddContent
+    interface ForEach
+    interface Console
+}
+
+Node <|-up- steps
+NodeWithId <|-- functions
 
 @enduml
