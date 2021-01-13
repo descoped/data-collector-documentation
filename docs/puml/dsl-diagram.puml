@@ -156,6 +156,34 @@ package "api.publisher (Publishers)" as publisher {
     }
 }
 
+package "api.queryFeature (Factory)" as queryFeature {
+    abstract class AbstractQueryHandler<Query|Body> implements QueryFeature {
+        +ExecutionContext execute(ExecutionContext input)
+    }
+    interface QueryFeature {
+        +List<?> evaluateList(Object data)
+        +Object evaluateObject(Object data)
+        +String evaluateStringLiteral(Object data)
+    }
+    interface DocumentParserFeature {
+        +byte[] serialize(Object document)
+        +Object deserialize(byte[] source)
+        +void tokenDeserializer(InputStream source, Consumer<Object> entryCallback)
+    }
+    class JqPathParser implements DocumentParserFeature {
+    }
+    class XPathParser implements DocumentParserFeature {
+    }
+    class JsonTokenParser implements DocumentParserFeature {
+    }
+    class XmlTokenParser implements DocumentParserFeature {
+    }
+    class Queries {
+        +static QueryFeature from(Query query)
+        +static QueryFeature from(ExecutionContext context, Query query)
+    }
+}
+
 package "api.query (Queries)" as query {
     interface Body
     interface Query {
@@ -186,7 +214,9 @@ package "api.condition (Conditions)" as condition {
     }
 }
 
-Base -up---|> condition
+
+Base -up----|> condition
+queryFeature -down--> query
 Base -up---|> query
 
 Leaf -u--|> config
