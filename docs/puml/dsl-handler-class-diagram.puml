@@ -1,0 +1,83 @@
+@startuml
+
+package "core.handler.support" as support {
+    class Handlers {
+        +static <N extends Base> AbstractHandler<N> createHandlerFor(N node)
+        +static <R> R createSupportHandlerFor(Class<? extends Base> forNodeClass, Class<?> selectorClass)
+        +static <N extends Base> AbstractHandler<N> createCompositionHandlerFor(N node, Class<? extends Base> forNodeClass, Class<? extends Base> selectorNodeClass)
+    }
+}
+
+
+note top of support
+asdasd
+asdasd
+end note
+
+package "core.handler.executor" as executor {
+    class Executor {
+        +static <N extends Base> Execution instanceOf(N node)
+        +static <N extends Base> ExecutionContext execute(N node, ExecutionContext input)
+    }
+}
+
+package "core.handler.context" as context {
+    class ExecutionContext {
+    }
+}
+
+package "core.handle.base" as base {
+    interface Execution {
+        +ExecutionContext execute(ExecutionContext context)
+    }
+
+    abstract class AbstractHandler<N extends Base> implements Execution {
+        ~ExecutionContext configureContext(ExecutionContext context)
+    }
+}
+
+note top of handler
+The Handler pattern is ubiquitous to all
+descendents of <i>Base</i> interfaces.
+
+This example demonstrates use of Handler
+for a Http Get operation.
+end note
+
+package "core.handler.http" as handler {
+    abstract class AbstractNodeHandler < T extends Node > {
+        +AbstractNodeHandler(T node)
+    }
+    abstract class OperationHandler<T extends Operation> {
+        ~static void copyInputHeadersToRequestBuilder(ExecutionContext input, Request.Builder requestBuilder)
+        ~static void copyNodeHeadersToRequestBuilder(Operation node, ExecutionContext context, Request.Builder requestBuilder)
+        --
+        -String evaluatedUrl(ExecutionContext context)
+        ~int beforeRequest(ExecutionContext input)
+        ~Response doRequest(ExecutionContext input, int requestTimeout, Request.Builder requestBuilder)
+        ~ExecutionContext handleResponse(ExecutionContext input, Response response)
+        -private Response sendAndRetryRequestOnError(ExecutionContext context, Client client, Request request, int requestTimeout, int retryCount, int napOnRetryInMillis)
+        -private Response executeRequest(ExecutionContext context, Client client, Request request, int requestTimeout, boolean inRetryWhileState)
+        -private void validateResponse(ExecutionContext context, Request request, Response response)
+        -private void nap(int millis)
+        --
+        +ExecutionContext execute(ExecutionContext context)
+    }
+    class GetHandler < Get > {
+        @Handler(forClass = Get.class)
+        --
+        +GetHandler(Get node)
+        +ExecutionContext execute(ExecutionContext input)
+
+    }
+
+    AbstractNodeHandler <|-u- AbstractHandler
+    OperationHandler <|-u- AbstractNodeHandler
+    GetHandler <|-u- OperationHandler
+}
+
+support --[hidden]- executor
+executor -[hidden]-- context
+context --[hidden]-- handler
+
+@enduml

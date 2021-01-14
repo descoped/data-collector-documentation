@@ -1,0 +1,60 @@
+@startuml
+
+package "api.queryFeature (Factory)" as queryFeature {
+    abstract class AbstractQueryHandler<Query|Body> implements QueryFeature {
+        +ExecutionContext execute(ExecutionContext input)
+    }
+    interface QueryFeature {
+        +List<?> evaluateList(Object data)
+        +Object evaluateObject(Object data)
+        +String evaluateStringLiteral(Object data)
+    }
+    interface DocumentParserFeature {
+        +byte[] serialize(Object document)
+        +Object deserialize(byte[] source)
+        +void tokenDeserializer(InputStream source, Consumer<Object> entryCallback)
+    }
+    class JqPathParser implements DocumentParserFeature {
+    }
+    class XPathParser implements DocumentParserFeature {
+    }
+    class JsonTokenParser implements DocumentParserFeature {
+    }
+    class XmlTokenParser implements DocumentParserFeature {
+    }
+    class Queries {
+        +static QueryFeature from(Query query)
+        +static QueryFeature from(ExecutionContext context, Query query)
+    }
+}
+
+package "api.query (Queries)" as query {
+    abstract class QueryBuilder {
+    }
+    class BodyBuilder
+    class EvalBuilder {
+        +EvalBuilder(String elExpression)
+        +EvalBuilder(QueryBuilder queryBuilder, String bindToVariable, String elExpression)
+    }
+    class RegExBuilder {
+        +RegExBuilder(QueryBuilder queryBuilder, String expression)
+    }
+    class JqPathBuilder {
+        +JqPathBuilder(String expression)
+    }
+    class XPathBuilder {
+        +XPathBuilder(String expression)
+    }
+    class JsonTokenBuilder
+    class XmlTokenBuilder
+
+    QueryBuilder <|-right- BodyBuilder
+    EvalBuilder <|-- QueryBuilder
+    RegExBuilder <|--- QueryBuilder
+    JqPathBuilder <|--- QueryBuilder
+    XPathBuilder <|--- QueryBuilder
+    JsonTokenBuilder <|--- QueryBuilder
+    XmlTokenBuilder <|-- QueryBuilder
+}
+
+@enduml
