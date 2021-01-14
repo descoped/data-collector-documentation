@@ -1,0 +1,260 @@
+@startuml
+
+package api.base as base {
+    abstract class AbstractBuilder
+    abstract class LeafNodeBuilder {
+        +String serialize()
+        #<R extends Base> R build(BuildContext buildContext)
+        #<R extends Base> R build()
+    }
+    abstract class NodeBuilder {
+        +String serializeA()
+        +String serializeAsYaml()
+        #<R extends Base> R build(BuildContext buildContext)
+        #<R extends Base> R build()
+    }
+    abstract class NodeWithIdBuilder {
+        ~String getId()
+        ~void setId(String id)
+    }
+
+    class SpecificationBuilder {
+        +SpecificationBuilder(String specificationId, String name, String startFunctionId)
+        +String getId()
+        +String getName()
+        +SpecificationBuilder configure(ConfigurationBuilder builder)
+        +SpecificationBuilder function(NodeWithIdBuilder builder)
+        +Specification end()
+        +NodeBuilder get(String nodeId)
+        +String serialize()
+        +String serializeAsYaml()
+    }
+
+    AbstractBuilder <|-r- LeafNodeBuilder
+    AbstractBuilder <|-d- NodeBuilder
+    NodeBuilder <|-d- NodeWithIdBuilder
+}
+
+package "api.functions (NodeWithId)" as functions {
+    abstract class OperationPublisherBuilder
+    class BodyPublisherBuilder {
+        +BodyPublisherBuilder plainText(String text)
+        +BodyPublisherBuilder plainText(BodyPublisherProducerBuilder bodyPublisherProducerBuilder)
+        +BodyPublisherBuilder urlEncoded(String data)
+        +BodyPublisherBuilder urlEncoded(BodyPublisherProducerBuilder bodyPublisherProducerBuilder)
+        +BodyPublisherBuilder textPart(String name, String value)
+        +BodyPublisherBuilder formPart(String name, String filename, byte[] value)
+        +BodyPublisherBuilder formPart(String name, String filename, String value)
+    }
+    abstract class OperationBuilder {
+    }
+    class GetBuilder {
+        +GetBuilder url(String urlString)
+        +GetBuilder header(String name, String value)
+        +GetBuilder retryWhile(LeafNodeBuilder retryWhileBuilder)
+        +GetBuilder validate(LeafNodeBuilder validationBuilder)
+        +GetBuilder pipe(NodeBuilder builder)
+        +GetBuilder returnVariables(String... variableKeys)
+    }
+    class PutBuilder {
+        +PutBuilder url(String urlString)
+        +PutBuilder header(String name, String value)
+        +PutBuilder data(BodyPublisherBuilder bodyPublisherBuilder)
+        +PutBuilder validate(LeafNodeBuilder validationBuilder)
+        +PutBuilder pipe(NodeBuilder builder)
+        +PutBuilder returnVariables(String... variableKeys)
+    }
+    class PostBuilder {
+        +PostBuilder url(String urlString)
+        +PostBuilder header(String name, String value)
+        +PostBuilder data(BodyPublisherBuilder bodyPublisherBuilder)
+        +PostBuilder validate(LeafNodeBuilder validationBuilder)
+        +PostBuilder pipe(NodeBuilder builder)
+        +PostBuilder returnVariables(String... variableKeys)
+    }
+    class DeleteBuilder {
+        +DeleteBuilder url(String urlString)
+        +DeleteBuilder header(String name, String value)
+        +DeleteBuilder validate(LeafNodeBuilder validationBuilder)
+        +DeleteBuilder pipe(NodeBuilder builder)
+        +DeleteBuilder returnVariables(String... variableKeys)
+    }
+    class PaginateBuilder {
+        +PaginateBuilder variable(String identifier, String expression)
+        +PaginateBuilder iterate(ExecuteBuilder executeBuilder)
+        +PaginateBuilder prefetchThreshold(int threshold)
+        +PaginateBuilder until(ConditionBuilder conditionBuilder)
+        +PaginateBuilder addPageContent(String positionVariable)
+    }
+
+    LeafNodeBuilder <|-u- OperationPublisherBuilder
+    OperationPublisherBuilder <|-down-- BodyPublisherBuilder
+    PaginateBuilder -u-|> NodeWithIdBuilder
+    OperationBuilder -u-|> NodeWithIdBuilder
+    OperationBuilder <|-- GetBuilder
+    OperationBuilder <|--- PutBuilder
+    OperationBuilder <|--- PostBuilder
+    OperationBuilder <|-- DeleteBuilder
+}
+
+package "api.steps (Node)" as steps {
+    class ExecuteBuilder {
+        +ExecuteBuilder(String executeId)
+        +ExecuteBuilder requiredInput(String identifier)
+        +ExecuteBuilder inputVariable(String identifier, QueryBuilder queryBuilder)
+    }
+    class ProcessBuilder {
+        +ProcessBuilder(Class<? extends Processor> processorClass)
+        +ProcessBuilder output(String variable)
+    }
+    class SequenceBuilder {
+        +SequenceBuilder(QueryBuilder splitBuilder)
+        +void splitBuilder(QueryBuilder splitBuilder)
+        +SequenceBuilder expected(QueryBuilder expectedBuilder)
+    }
+    class NextPageBuilder {
+        +NextPageBuilder output(String variable, QueryBuilder queryBuilder)
+    }
+    class ParallelBuilder {
+        +ParallelBuilder(QueryBuilder splitBuilder)
+        +ParallelBuilder variable(String identifier, QueryBuilder queryBuilder)
+        +ParallelBuilder pipe(NodeBuilder builder)
+        +ParallelBuilder publish(PublishBuilder publishBuilder)
+    }
+    class PublishBuilder {
+        +PublishBuilder(String positionVariableExpression)
+    }
+    class AddContentBuilder {
+        +AddContentBuilder(String positionVariableExpression, String contentKey)
+        +AddContentBuilder storeState(String key, Object value)
+    }
+    class ForEachBuilder {
+        +ForEachBuilder(QueryBuilder splitBuilder)
+        +ForEachBuilder pipe(NodeBuilder builder)
+    }
+    class ConsoleBuilder {
+    }
+}
+
+package "api.config (Configuration)" as config {
+    abstract class ConfigurationBuilder
+    class SpecificationContextBuilder {
+        +Map<String, List<String>> headerMap()
+        +SpecificationContextBuilder topic(String topicName)
+        +SpecificationContextBuilder header(String name, String value)
+        +SpecificationContextBuilder variable(String name, Object value)
+        +SpecificationContextBuilder globalState(Object key, Object value)
+        +Object globalState(Object key)
+    }
+    class SecurityBuilder {
+        +SecurityBuilder sslBundleName(String bundleName)
+        +SecurityBuilder identity(IdentityBuilder identityBuilder)
+    }
+    abstract class IdentityBuilder {
+        +IdentityBuilder(BuilderType type, String id)
+    }
+    class JwtIdentityBuilder {
+        +JwtIdentityBuilder(String id, JwtHeaderClaims headerClaims, JwtClaims claims)
+    }
+
+    IdentityBuilder <|-u- JwtIdentityBuilder
+    ConfigurationBuilder <|-u- SpecificationContextBuilder
+    ConfigurationBuilder <|-u- SecurityBuilder
+}
+
+package "api.validation (Validators)" as validation {
+    class HttpStatusValidationBuilder {
+        +HttpStatusValidationBuilder success(Integer... statusCode)
+        +HttpStatusValidationBuilder success(Integer fromStatusCodeInclusive, Integer toStatusCodeInclusive)
+        +HttpStatusValidationBuilder success(Integer statusCode, ResponsePredicateBuilder responsePredicateBuilder)
+        +HttpStatusValidationBuilder fail(Integer... statusCode)
+        +HttpStatusValidationBuilder fail(Integer fromStatusCodeInclusive, Integer toStatusCodeInclusive)
+    }
+    class HttpStatusRetryWhileBuilder  {
+        +HttpStatusRetryWhileBuilder is(Integer statusCode, TimeUnit duration, Integer amount)
+        +HttpStatusRetryWhileBuilder is(HttpStatus statusCode, TimeUnit duration, Integer amount)
+    }
+}
+
+package "api.response (Predicates)" as response {
+    abstract class ResponsePredicateBuilder
+    class BodyContainsBuilder {
+        +BodyContainsBuilder(QueryBuilder queryBuilder, String equalToStringLiteral)
+    }
+
+    ResponsePredicateBuilder <|-u- BodyContainsBuilder
+}
+
+package "api.publisher (Publishers)" as publisher {
+    abstract class BodyPublisherProducerBuilder
+    abstract class IdentityTokenBodyPublisherProducerBuilder
+    class JwtIdentityTokenBodyPublisherProducerBuilder {
+        +JwtIdentityTokenBodyPublisherProducerBuilder identityId(String identityId)
+        +JwtIdentityTokenBodyPublisherProducerBuilder bindTo(String bindTo)
+        +JwtIdentityTokenBodyPublisherProducerBuilder token(String token)
+    }
+    class StringBodyPublisherProducerBuilder {
+        +StringBodyPublisherProducerBuilder(String data)
+    }
+
+    BodyPublisherProducerBuilder <|-u- IdentityTokenBodyPublisherProducerBuilder
+    IdentityTokenBodyPublisherProducerBuilder <|-u- JwtIdentityTokenBodyPublisherProducerBuilder
+    BodyPublisherProducerBuilder <|-u- StringBodyPublisherProducerBuilder
+}
+
+package "api.query (Queries)" as query {
+    abstract class QueryBuilder {
+    }
+    class BodyBuilder
+    class EvalBuilder {
+        +EvalBuilder(String elExpression)
+        +EvalBuilder(QueryBuilder queryBuilder, String bindToVariable, String elExpression)
+    }
+    class RegExBuilder {
+        +RegExBuilder(QueryBuilder queryBuilder, String expression)
+    }
+    class JqPathBuilder {
+        +JqPathBuilder(String expression)
+    }
+    class XPathBuilder {
+        +XPathBuilder(String expression)
+    }
+    class JsonTokenBuilder
+    class XmlTokenBuilder
+
+    QueryBuilder <|-right- BodyBuilder
+    EvalBuilder <|-- QueryBuilder
+    RegExBuilder <|--- QueryBuilder
+    JqPathBuilder <|--- QueryBuilder
+    XPathBuilder <|--- QueryBuilder
+    JsonTokenBuilder <|--- QueryBuilder
+    XmlTokenBuilder <|-- QueryBuilder
+}
+
+package "api.condition (Conditions)" as condition {
+    abstract class ConditionBuilder {
+    }
+    class WhenVariableIsNullBuilder {
+        +WhenVariableIsNullBuilder identifier(String identifier)
+    }
+    class WhenExpressionIsTrueBuilder {
+        +WhenExpressionIsTrueBuilder identifier(String identifier)
+    }
+
+    ConditionBuilder <|-- WhenVariableIsNullBuilder
+    ConditionBuilder <|-- WhenExpressionIsTrueBuilder
+}
+
+SpecificationBuilder <|-u- AbstractBuilder
+IdentityBuilder --|> LeafNodeBuilder
+ConfigurationBuilder ----d-|> LeafNodeBuilder
+NodeBuilder <|--u- QueryBuilder
+ResponsePredicateBuilder ---|> LeafNodeBuilder
+BodyPublisherProducerBuilder -----|> LeafNodeBuilder
+HttpStatusValidationBuilder -u-|> LeafNodeBuilder
+HttpStatusRetryWhileBuilder -u-|> LeafNodeBuilder
+ConditionBuilder --|> NodeBuilder
+
+NodeBuilder --|> steps
+
+@enduml
