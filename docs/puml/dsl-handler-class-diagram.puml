@@ -1,5 +1,10 @@
 @startuml
 
+note top of support
+asdasd
+asdasd
+end note
+
 package "core.handler.support" as support {
     class Handlers {
         +static <N extends Base> AbstractHandler<N> createHandlerFor(N node)
@@ -7,12 +12,6 @@ package "core.handler.support" as support {
         +static <N extends Base> AbstractHandler<N> createCompositionHandlerFor(N node, Class<? extends Base> forNodeClass, Class<? extends Base> selectorNodeClass)
     }
 }
-
-
-note top of support
-asdasd
-asdasd
-end note
 
 package "core.handler.executor" as executor {
     class Executor {
@@ -23,7 +22,37 @@ package "core.handler.executor" as executor {
 
 package "core.handler.context" as context {
     class ExecutionContext {
+        +static ExecutionContext empty()
+        +static ExecutionContext of(ExecutionContext input)
+        --
+        +ExecutionContext join(ExecutionContext anotherContext)
+        +Services services()
+        +ExecutionContext globalState(Object key, Object value)
+        +<R> R globalStateIfAbsent(Object key, Supplier<R> supplier)
+        +Map<String, Object> variables()
+        +Object variable(String key)
+        +ExecutionContext variable(String key, Object value)
+        +ExecutionContext state(Object key, Object value)
+        +<R> R state(Class<R> key)
+        +<R> R state(Object key)
+        +void releaseState(Object key)
+        +ExecutionContext merge(ExecutionContext context)
     }
+
+    class ExecutionContext.Builder {
+        +Builder services(Services services)
+        +Builder services(ExecutionContext input)
+        +Builder globalState(Map<Object, Object> globalState)
+        +Builder globalState(ExecutionContext input)
+        +Builder variables(Map<String, Object> variables)
+        +Builder variables(ExecutionContext input)
+        +Builder state(Map<Object, Object> state)
+        +Builder state(ExecutionContext input)
+        +Builder of(ExecutionContext input)
+        +ExecutionContext build()
+    }
+
+    ExecutionContext <.. ExecutionContext.Builder : " build()"
 }
 
 package "core.handle.base" as base {
@@ -76,8 +105,14 @@ package "core.handler.http" as handler {
     GetHandler <|-u- OperationHandler
 }
 
-support --[hidden]- executor
-executor -[hidden]-- context
-context --[hidden]-- handler
+'support --[hidden]-- executor
+'executor --[hidden]-- context
+'context --[hidden]-- base
+'context --[hidden]-- handler
+
+support -[hidden]- executor
+executor -[hidden]- context
+context -[hidden] base
+'base --[hidden]-- handler
 
 @enduml
