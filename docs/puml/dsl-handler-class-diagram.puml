@@ -100,19 +100,13 @@ package "core.handler.http" as handler {
 
     }
 
-    AbstractNodeHandler <|-u- AbstractHandler
-    OperationHandler <|-u- AbstractNodeHandler
-    GetHandler <|-u- OperationHandler
+    AbstractNodeHandler -u-|> AbstractHandler
+    OperationHandler -u-|> AbstractNodeHandler
+    GetHandler -u-|> OperationHandler
 }
-
-'support --[hidden]-- executor
-'executor --[hidden]-- context
-'context --[hidden]-- base
-'context --[hidden]-- handler
 
 support -[hidden]- executor
 executor -[hidden]- context
 context -[hidden] base
-'base --[hidden]-- handler
 
 @enduml
