@@ -1,8 +1,8 @@
 @startuml
 
 note top of support
-asdasd
-asdasd
+Node Handler discovery is triggered by static
+initialization at runtime.
 end note
 
 package "core.handler.support" as support {
@@ -11,6 +11,13 @@ package "core.handler.support" as support {
         +static <R> R createSupportHandlerFor(Class<? extends Base> forNodeClass, Class<?> selectorClass)
         +static <N extends Base> AbstractHandler<N> createCompositionHandlerFor(N node, Class<? extends Base> forNodeClass, Class<? extends Base> selectorNodeClass)
     }
+
+    class "Handlers.NodeFactoryHolder" as scanner {
+        ~static {}
+        ~static Set<Class<? extends AbstractHandler>> nodeHandlerDiscovery(String... packageNames)
+    }
+
+    Handlers *.. scanner
 }
 
 package "core.handler.executor" as executor {
@@ -66,8 +73,8 @@ package "core.handle.base" as base {
 }
 
 note top of handler
-The Handler pattern is ubiquitous to all
-descendents of <i>Base</i> interfaces.
+The Handler is stateful and is created
+for each node-execution at runtime.
 
 This example demonstrates use of Handler
 for a Http Get operation.
@@ -105,8 +112,11 @@ package "core.handler.http" as handler {
     GetHandler -u-|> OperationHandler
 }
 
-support -[hidden]- executor
+'support -[hidden]-- executor
 executor -[hidden]- context
 context -[hidden] base
+support -[hidden]-- base
+support -[hidden]------ handler
+AbstractHandler -[hidden]-- AbstractNodeHandler
 
 @enduml

@@ -61,7 +61,9 @@ OperationBuilder <|-- PostBuilder
 OperationBuilder <|-- DeleteBuilder
 
 
-abstract AbstractNodeHandler #DDD
+abstract AbstractNodeHandler #DDD {
+    ExecutionContext execute(ExecutionContext context)
+}
 abstract OperationHandler<TYPE extends Operation> extends AbstractNodeHandler {
     this(TYPE)
 }
