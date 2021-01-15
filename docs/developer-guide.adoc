@@ -14,10 +14,10 @@ endif::[]
 
 ifdef::env-github[]
 == Domain Model Class diagram
-image::diagrams/dsl-builder-diagram.svg[alt="Domain Builder Model Class diagram", max-width=1024, link="diagrams/dsl-builder-diagram.svg"]
+image::diagrams/dsl-builder-class-diagram.svg[alt="Domain Builder Model Class diagram", max-width=1024, link="diagrams/dsl-builder-class-diagram.svg"]
 
 == Domain Model Class diagram
-image::diagrams/dsl-api-diagram.svg[alt="Domain Model Class diagram", max-width=1024, link="diagrams/dsl-api-diagram.svg"]
+image::diagrams/dsl-api-class-diagram.svg[alt="Domain Model Class diagram", max-width=1024, link="diagrams/dsl-api-class-diagram.svg"]
 
 == Domain Handler Class diagram
 image::diagrams/dsl-handler-class-diagram.svg[alt="Domain Model Class diagram", max-width=1024, link="diagrams/dsl-handler-class-diagram.svg"]
@@ -38,10 +38,10 @@ endif::[]
 
 ifndef::env-github[]
 == Domain Model Class diagram
-plantuml::puml/dsl-api-diagram.puml[format=svg, alt="Domain Model Class diagram", max-width=1024, link="dsl-api-diagram.svg"]
+plantuml::puml/dsl-api-class-diagram.puml[format=svg, alt="Domain Model Class diagram", max-width=1024, link="dsl-api-class-diagram.svg"]
 
 == Domain Builder Model Class diagram
-plantuml::puml/dsl-builder-diagram.puml[format=svg, alt="Domain Model Class diagram", max-width=1024, link="dsl-builder-diagram.svg"]
+plantuml::puml/dsl-builder-class-diagram.puml[format=svg, alt="Domain Model Class diagram", max-width=1024, link="dsl-builder-class-diagram.svg"]
 
 == Domain Handler Class diagram
 plantuml::puml/dsl-handler-class-diagram.puml[format=svg, alt="Domain Handler Class diagram", max-width=1024, link="dsl-handler-class-diagram.svg"]

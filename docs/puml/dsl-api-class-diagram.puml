@@ -1,6 +1,20 @@
 @startuml
 
-package api.base {
+package "api.specification" as specification {
+    class Specification {
+        +String id()
+        +String name()
+        +Node startFunction()
+        --
+        +static SpecificationBuilder start(String specificationId, String name, String startFunction)
+        +static SpecificationBuilder deserialize(String source)
+        +static <R extends AbstractBuilder> R deserialize(String source, Class<R> builderClass)
+        +static Specification create(String specificationId, String name, Node startFunction, Map<String, Node> nodeById)
+        +static Specification create(String specificationId, String name, Configurations configurations, Node startFunction, Map<String, Node> nodeById)
+    }
+}
+
+package "api.base" as base {
     interface Base
     interface Leaf
     interface Node {
@@ -215,7 +229,7 @@ package "api.condition (Conditions)" as condition {
 }
 
 
-Base -up----|> condition
+Base -up---|> condition
 queryFeature -down--> query
 Base -up---|> query
 
@@ -227,5 +241,7 @@ Leaf -d--|> response
 Node -up--|> steps
 
 NodeWithId -d-|> functions
+
+'functions -[hidden]- specification
 
 @enduml
