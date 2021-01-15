@@ -233,7 +233,7 @@ Base -up---|> condition
 queryFeature -down--> query
 Base -up---|> query
 
-Leaf -u--|> config
+Leaf -u-|> config
 Leaf -d-|> validation
 Leaf -d--|> publisher
 Leaf -d--|> response
@@ -242,6 +242,6 @@ Node -up--|> steps
 
 NodeWithId -d-|> functions
 
-'functions -[hidden]- specification
+Specification *.d. base
 
 @enduml
