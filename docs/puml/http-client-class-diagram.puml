@@ -1,0 +1,113 @@
+@startuml
+
+interface Client {
+    Version version()
+    Response send(Request request)
+    Response send(Request request, BodyHandler<R> bodyHandler)
+    CompletableFuture<Response> sendAsync(Request request)
+    CompletableFuture<Response> sendAsync(Request request, BodyHandler<RESULT> bodyHandler)
+    Object getDelegate()
+    --
+    static Client newClient()
+    static Builder newClientBuilder()
+}
+interface Client.Builder {
+    Builder version(Version version)
+    Builder priority(int priority)
+    Builder authenticator(Authenticator authenticator)
+    Builder sslContext(SSLContext sslContext)
+    Builder sslParameters(SSLParameters sslParameters)
+    Builder x509TrustManager(X509TrustManager trustManager)
+    Builder executor(Executor executor)
+    Builder connectTimeout(Duration duration)
+    Builder followRedirects(Redirect policy)
+    Builder proxy(ProxySelector proxySelector)
+    Client build()
+    --
+}
+
+enum Method {
+    GET
+    PUT
+    POST
+    DELETE
+    OPTIONS
+}
+interface Request {
+    String url()
+    Method method()
+    Headers headers()
+    Object getDelegate()
+    --
+    static Builder newRequestBuilder()
+}
+interface Request.Builder {
+    Builder url(String url)
+    Builder header(String name, String value)
+    Builder expectContinue(boolean enable)
+    Builder timeout(Duration duration)
+    Builder GET()
+    Builder PUT(byte[] bytes)
+    Builder PUT(Flow.Publisher<ByteBuffer> bodyPublisher)
+    Builder POST(byte[] bytes)
+    Builder POST(Flow.Publisher<ByteBuffer> bodyPublisher)
+    Builder DELETE()
+    Request build()
+    --
+}
+
+interface Response {
+    String url()
+    Headers headers()
+    int statusCode()
+    byte[] body()
+    <R> Optional<BodyHandler<R>> bodyHandler()
+    Optional<Response> previousResponse()
+    --
+    static Builder newResponseBuilder()
+}
+interface Response.Builder {
+    Builder delegate(Object delegate)
+    <R> void bodyHandler(BodyHandler<R> bodyHandler)
+    Response build()
+    --
+}
+
+interface BodyHandler<T> << Flow.Subscriber<List<ByteBuffer>> >> {
+    T body()
+}
+
+Response.Builder *-up- Response
+Request.Builder *-up- Request
+Response -up- BodyHandler
+Request -right- Method
+Client.Builder *-up-- Client
+
+
+package java.httpClient.native #EEE {
+    class HttpClientDelegate
+    class HttpClientDelegate.ClientBuilder
+    class HttpRequestDelegate
+    class HttpRequestDelegate.RequestBuilder
+    class HttpResponseDelegate
+    class HttpResponseDelegate.ResponseBuilder
+}
+
+package http.bodySubscriber #EEE {
+    class FileBodyHandler<Path> <<BodyHandler>>
+    class TempFileBodyHandler<Path> <<FileBodyHandler>>
+}
+
+BodyHandler <|-up- FileBodyHandler
+FileBodyHandler <|-up- TempFileBodyHandler
+
+Response <|--- HttpResponseDelegate
+Response.Builder <|--- HttpResponseDelegate.ResponseBuilder
+
+Request <|--- HttpRequestDelegate
+Request.Builder <|--- HttpRequestDelegate.RequestBuilder
+
+Client <|--- HttpClientDelegate
+Client.Builder <|--- HttpClientDelegate.ClientBuilder
+
+@enduml

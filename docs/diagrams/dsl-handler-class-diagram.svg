@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" contentScriptType="application/ecmascript" contentStyleType="text/css"
+     height="2014px" preserveAspectRatio="none" style="width:1488px;height:2014px;" version="1.1"
+     viewBox="0 0 1488 2014" width="1488px" zoomAndPan="magnify"><defs><filter height="300%" id="ft1k9a5dlyplb" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[4a77e03bc18691b8919b6eaee68b6397]
+cluster support--><polygon fill="#FFFFFF" filter="url(#ft1k9a5dlyplb)" points="217,148,369,148,376,170.4883,1210,170.4883,1210,463,217,463,217,148" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="217" x2="376" y1="170.4883" y2="170.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="146" x="221" y="163.5352">core.handler.support</text><!--MD5=[02ce43ee6c19eec9361f331a4e96450d]
+cluster executor--><polygon fill="#FFFFFF" filter="url(#ft1k9a5dlyplb)" points="16,512,173,512,180,534.4883,563,534.4883,563,653,16,653,16,512" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="16" x2="180" y1="534.4883" y2="534.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="151" x="20" y="527.5352">core.handler.executor</text><!--MD5=[7f1db14b27b7629509c802e44e13c9c4]
+cluster context--><polygon fill="#FFFFFF" filter="url(#ft1k9a5dlyplb)" points="16,702,165,702,172,724.4883,437,724.4883,437,1253,16,1253,16,702" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="16" x2="172" y1="724.4883" y2="724.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="143" x="20" y="717.5352">core.handler.context</text><!--MD5=[f12f832c3ac0603ce526ef171d08d9c6]
+cluster base--><polygon fill="#FFFFFF" filter="url(#ft1k9a5dlyplb)" points="606,786,729,786,736,808.4883,1030,808.4883,1030,1194.5,606,1194.5,606,786" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="606" x2="736" y1="808.4883" y2="808.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="117" x="610" y="801.5352">core.handle.base</text><!--MD5=[5336d0432c5753478f8bb0248199b33b]
+cluster handler--><polygon fill="#FFFFFF" filter="url(#ft1k9a5dlyplb)" points="467,1450,593,1450,600,1472.4883,1431,1472.4883,1431,2007,467,2007,467,1450" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="467" x2="600" y1="1472.4883" y2="1472.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="120" x="471" y="1465.5352">core.handler.http</text><!--MD5=[46f2c292e41020ccd6cfa91fa9d63f8f]
+class Handlers--><rect codeLine="11" fill="#FEFECE" filter="url(#ft1k9a5dlyplb)" height="112.7754" id="Handlers" style="stroke:#A80036;stroke-width:1.5;" width="926" x="241" y="191"/><ellipse cx="673.75" cy="207" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M676.2231,213.1431 Q675.6421,213.4419 675.0029,213.5913 Q674.3638,213.7407 673.6582,213.7407 Q671.1514,213.7407 669.8315,212.0889 Q668.5117,210.437 668.5117,207.3159 Q668.5117,204.1865 669.8315,202.5347 Q671.1514,200.8828 673.6582,200.8828 Q674.3638,200.8828 675.0112,201.0322 Q675.6587,201.1816 676.2231,201.4805 L676.2231,204.2031 Q675.5923,203.6221 674.9988,203.3523 Q674.4053,203.0825 673.7744,203.0825 Q672.4297,203.0825 671.7449,204.1492 Q671.0601,205.2158 671.0601,207.3159 Q671.0601,209.4077 671.7449,210.4744 Q672.4297,211.541 673.7744,211.541 Q674.4053,211.541 674.9988,211.2712 Q675.5923,211.0015 676.2231,210.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="52" x="694.25" y="211.5352">Handlers</text><line style="stroke:#A80036;stroke-width:1.5;" x1="242" x2="1166" y1="223" y2="223"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="249" y="231"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="444" x="261" y="237.6348">Map&lt;Class&lt;? extends Base&gt;, Class&lt;? extends AbstractHandler&gt;&gt; handlerFactory</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="249" y="243.9551"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="258" x="261" y="250.5898">Map&lt;String, Class&lt;?&gt;&gt; supportHandlerFactory</text><line style="stroke:#A80036;stroke-width:1.0;" x1="242" x2="1166" y1="256.9102" y2="256.9102"/><ellipse cx="252" cy="267.9102" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="390" x="261" y="271.5449">static &lt;N extends Base&gt; AbstractHandler&lt;N&gt; createHandlerFor(N node)</text><ellipse cx="252" cy="280.8652" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="548" x="261" y="284.5">static &lt;R&gt; R createSupportHandlerFor(Class&lt;? extends Base&gt; forNodeClass, Class&lt;?&gt; selectorClass)</text><ellipse cx="252" cy="293.8203" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="900" x="261" y="297.4551">static &lt;N extends Base&gt; AbstractHandler&lt;N&gt; createCompositionHandlerFor(N node, Class&lt;? extends Base&gt; forNodeClass, Class&lt;? extends Base&gt; selectorNodeClass)</text><!--MD5=[7baceaf4d78f1e030a3874b4c56ae591]
+class scanner--><rect codeLine="20" fill="#FEFECE" filter="url(#ft1k9a5dlyplb)" height="73.9102" id="scanner" style="stroke:#A80036;stroke-width:1.5;" width="538" x="435" y="365"/><ellipse cx="616.25" cy="381" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M618.7231,387.1431 Q618.1421,387.4419 617.5029,387.5913 Q616.8638,387.7407 616.1582,387.7407 Q613.6514,387.7407 612.3315,386.0889 Q611.0117,384.437 611.0117,381.3159 Q611.0117,378.1865 612.3315,376.5347 Q613.6514,374.8828 616.1582,374.8828 Q616.8638,374.8828 617.5112,375.0322 Q618.1587,375.1816 618.7231,375.4805 L618.7231,378.2031 Q618.0923,377.6221 617.4988,377.3523 Q616.9053,377.0825 616.2744,377.0825 Q614.9297,377.0825 614.2449,378.1492 Q613.5601,379.2158 613.5601,381.3159 Q613.5601,383.4077 614.2449,384.4744 Q614.9297,385.541 616.2744,385.541 Q616.9053,385.541 617.4988,385.2712 Q618.0923,385.0015 618.7231,384.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="167" x="636.75" y="385.5352">Handlers.NodeFactoryHolder</text><line style="stroke:#A80036;stroke-width:1.5;" x1="436" x2="972" y1="397" y2="397"/><polygon fill="none" points="446,404,442,410,450,410" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="40" x="455" y="411.6348">static {}</text><line style="stroke:#A80036;stroke-width:1.5;" x1="436" x2="972" y1="417.9551" y2="417.9551"/><polygon fill="#4177AF" points="446,424.9551,442,430.9551,450,430.9551" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="512" x="455" y="432.5898">static Set&lt;Class&lt;? extends AbstractHandler&gt;&gt; nodeHandlerDiscovery(String... packageNames)</text><!--MD5=[a0a1f7f9662f43ef0ece806266f72a6f]
+class Executor--><rect codeLine="29" fill="#FEFECE" filter="url(#ft1k9a5dlyplb)" height="73.9102" id="Executor" style="stroke:#A80036;stroke-width:1.5;" width="480" x="59" y="555"/><ellipse cx="269.75" cy="571" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M272.2231,577.1431 Q271.6421,577.4419 271.0029,577.5913 Q270.3638,577.7407 269.6582,577.7407 Q267.1514,577.7407 265.8315,576.0889 Q264.5117,574.437 264.5117,571.3159 Q264.5117,568.1865 265.8315,566.5347 Q267.1514,564.8828 269.6582,564.8828 Q270.3638,564.8828 271.0112,565.0322 Q271.6587,565.1816 272.2231,565.4805 L272.2231,568.2031 Q271.5923,567.6221 270.9988,567.3523 Q270.4053,567.0825 269.7744,567.0825 Q268.4297,567.0825 267.7449,568.1492 Q267.0601,569.2158 267.0601,571.3159 Q267.0601,573.4077 267.7449,574.4744 Q268.4297,575.541 269.7744,575.541 Q270.4053,575.541 270.9988,575.2712 Q271.5923,575.0015 272.2231,574.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="50" x="290.25" y="575.5352">Executor</text><line style="stroke:#A80036;stroke-width:1.5;" x1="60" x2="538" y1="587" y2="587"/><line style="stroke:#A80036;stroke-width:1.5;" x1="60" x2="538" y1="595" y2="595"/><ellipse cx="70" cy="606" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="294" x="79" y="609.6348">static &lt;N extends Base&gt; Execution instanceOf(N node)</text><ellipse cx="70" cy="618.9551" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="454" x="79" y="622.5898">static &lt;N extends Base&gt; ExecutionContext execute(N node, ExecutionContext input)</text><!--MD5=[b8f9c9f402fdb0639661b25476f0741f]
+class ExecutionContext--><rect codeLine="37" fill="#FEFECE" filter="url(#ft1k9a5dlyplb)" height="229.3711" id="ExecutionContext" style="stroke:#A80036;stroke-width:1.5;" width="354" x="59" y="745"/><ellipse cx="182.25" cy="761" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M184.7231,767.1431 Q184.1421,767.4419 183.5029,767.5913 Q182.8638,767.7407 182.1582,767.7407 Q179.6514,767.7407 178.3315,766.0889 Q177.0117,764.437 177.0117,761.3159 Q177.0117,758.1865 178.3315,756.5347 Q179.6514,754.8828 182.1582,754.8828 Q182.8638,754.8828 183.5112,755.0322 Q184.1587,755.1816 184.7231,755.4805 L184.7231,758.2031 Q184.0923,757.6221 183.4988,757.3523 Q182.9053,757.0825 182.2744,757.0825 Q180.9297,757.0825 180.2449,758.1492 Q179.5601,759.2158 179.5601,761.3159 Q179.5601,763.4077 180.2449,764.4744 Q180.9297,765.541 182.2744,765.541 Q182.9053,765.541 183.4988,765.2712 Q184.0923,765.0015 184.7231,764.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="99" x="202.75" y="765.5352">ExecutionContext</text><line style="stroke:#A80036;stroke-width:1.5;" x1="60" x2="412" y1="777" y2="777"/><ellipse cx="70" cy="788" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="172" x="79" y="791.6348">static ExecutionContext empty()</text><ellipse cx="70" cy="800.9551" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="277" x="79" y="804.5898">static ExecutionContext of(ExecutionContext input)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="60" x2="412" y1="810.9102" y2="810.9102"/><ellipse cx="70" cy="821.9102" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="311" x="79" y="825.5449">ExecutionContext join(ExecutionContext anotherContext)</text><ellipse cx="70" cy="834.8652" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="99" x="79" y="838.5">Services services()</text><ellipse cx="70" cy="847.8203" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="294" x="79" y="851.4551">ExecutionContext globalState(Object key, Object value)</text><ellipse cx="70" cy="860.7754" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="328" x="79" y="864.4102">&lt;R&gt; R globalStateIfAbsent(Object key, Supplier&lt;R&gt; supplier)</text><ellipse cx="70" cy="873.7305" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="172" x="79" y="877.3652">Map&lt;String, Object&gt; variables()</text><ellipse cx="70" cy="886.6855" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="141" x="79" y="890.3203">Object variable(String key)</text><ellipse cx="70" cy="899.6406" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="274" x="79" y="903.2754">ExecutionContext variable(String key, Object value)</text><ellipse cx="70" cy="912.5957" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="261" x="79" y="916.2305">ExecutionContext state(Object key, Object value)</text><ellipse cx="70" cy="925.5508" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="147" x="79" y="929.1855">&lt;R&gt; R state(Class&lt;R&gt; key)</text><ellipse cx="70" cy="938.5059" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="128" x="79" y="942.1406">&lt;R&gt; R state(Object key)</text><ellipse cx="70" cy="951.4609" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="154" x="79" y="955.0957">void releaseState(Object key)</text><ellipse cx="70" cy="964.416" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="281" x="79" y="968.0508">ExecutionContext merge(ExecutionContext context)</text><!--MD5=[456b5dcdd3523bcda4108ba1c5f6c640]
+class ExecutionContext.Builder--><rect codeLine="55" fill="#FEFECE" filter="url(#ft1k9a5dlyplb)" height="177.5508" id="ExecutionContext.Builder" style="stroke:#A80036;stroke-width:1.5;" width="311" x="80.5" y="1051"/><ellipse cx="160.25" cy="1067" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M162.7231,1073.1431 Q162.1421,1073.4419 161.5029,1073.5913 Q160.8638,1073.7407 160.1582,1073.7407 Q157.6514,1073.7407 156.3315,1072.0889 Q155.0117,1070.437 155.0117,1067.3159 Q155.0117,1064.1865 156.3315,1062.5347 Q157.6514,1060.8828 160.1582,1060.8828 Q160.8638,1060.8828 161.5112,1061.0322 Q162.1587,1061.1816 162.7231,1061.4805 L162.7231,1064.2031 Q162.0923,1063.6221 161.4988,1063.3523 Q160.9053,1063.0825 160.2744,1063.0825 Q158.9297,1063.0825 158.2449,1064.1492 Q157.5601,1065.2158 157.5601,1067.3159 Q157.5601,1069.4077 158.2449,1070.4744 Q158.9297,1071.541 160.2744,1071.541 Q160.9053,1071.541 161.4988,1071.2712 Q162.0923,1071.0015 162.7231,1070.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="180.75" y="1071.5352">ExecutionContext.Builder</text><line style="stroke:#A80036;stroke-width:1.5;" x1="81.5" x2="390.5" y1="1083" y2="1083"/><line style="stroke:#A80036;stroke-width:1.5;" x1="81.5" x2="390.5" y1="1091" y2="1091"/><ellipse cx="91.5" cy="1102" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="183" x="100.5" y="1105.6348">Builder services(Services services)</text><ellipse cx="91.5" cy="1114.9551" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="219" x="100.5" y="1118.5898">Builder services(ExecutionContext input)</text><ellipse cx="91.5" cy="1127.9102" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="285" x="100.5" y="1131.5449">Builder globalState(Map&lt;Object, Object&gt; globalState)</text><ellipse cx="91.5" cy="1140.8652" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="234" x="100.5" y="1144.5">Builder globalState(ExecutionContext input)</text><ellipse cx="91.5" cy="1153.8203" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="260" x="100.5" y="1157.4551">Builder variables(Map&lt;String, Object&gt; variables)</text><ellipse cx="91.5" cy="1166.7754" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="223" x="100.5" y="1170.4102">Builder variables(ExecutionContext input)</text><ellipse cx="91.5" cy="1179.7305" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="219" x="100.5" y="1183.3652">Builder state(Map&lt;Object, Object&gt; state)</text><ellipse cx="91.5" cy="1192.6855" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="201" x="100.5" y="1196.3203">Builder state(ExecutionContext input)</text><ellipse cx="91.5" cy="1205.6406" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="186" x="100.5" y="1209.2754">Builder of(ExecutionContext input)</text><ellipse cx="91.5" cy="1218.5957" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="134" x="100.5" y="1222.2305">ExecutionContext build()</text><!--MD5=[c38b041ce756cbe16ae0cf6e4cd53481]
+class Execution--><rect codeLine="74" fill="#FEFECE" filter="url(#ft1k9a5dlyplb)" height="60.9551" id="Execution" style="stroke:#A80036;stroke-width:1.5;" width="315" x="683.5" y="829"/><ellipse cx="809.25" cy="845" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M805.6777,841.2651 L805.6777,839.1069 L813.0571,839.1069 L813.0571,841.2651 L810.5918,841.2651 L810.5918,849.3418 L813.0571,849.3418 L813.0571,851.5 L805.6777,851.5 L805.6777,849.3418 L808.1431,849.3418 L808.1431,841.2651 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="55" x="829.75" y="849.5352">Execution</text><line style="stroke:#A80036;stroke-width:1.5;" x1="684.5" x2="997.5" y1="861" y2="861"/><line style="stroke:#A80036;stroke-width:1.5;" x1="684.5" x2="997.5" y1="869" y2="869"/><ellipse cx="694.5" cy="880" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="289" x="703.5" y="883.6348">ExecutionContext execute(ExecutionContext context)</text><!--MD5=[01b95d182fe8d23fc8b232b64dd5b18e]
+class AbstractHandler--><rect codeLine="78" fill="#FEFECE" filter="url(#ft1k9a5dlyplb)" height="60.9551" id="AbstractHandler" style="stroke:#A80036;stroke-width:1.5;" width="368" x="638" y="1109.5"/><ellipse cx="723.75" cy="1125.5" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M723.6133,1120.8481 L722.4595,1125.9199 L724.7754,1125.9199 Z M722.1191,1118.6069 L725.1157,1118.6069 L728.4609,1131 L726.0122,1131 L725.2485,1127.937 L721.9697,1127.937 L721.2227,1131 L718.7739,1131 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="94" x="744.25" y="1130.0352">AbstractHandler</text><rect fill="#FFFFFF" height="16.1328" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="92" x="917" y="1106.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="90" x="918" y="1119.1016">N extends Base</text><line style="stroke:#A80036;stroke-width:1.5;" x1="639" x2="1005" y1="1141.5" y2="1141.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="639" x2="1005" y1="1149.5" y2="1149.5"/><polygon fill="#4177AF" points="649,1156.5,645,1162.5,653,1162.5" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="342" x="658" y="1164.1348">ExecutionContext configureContext(ExecutionContext context)</text><!--MD5=[f2f72a8a22143fdabb500f8432b91e61]
+class AbstractNodeHandler--><rect codeLine="99" fill="#FEFECE" filter="url(#ft1k9a5dlyplb)" height="60.9551" id="AbstractNodeHandler" style="stroke:#A80036;stroke-width:1.5;" width="262" x="691" y="1493"/><ellipse cx="706" cy="1509" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M705.8633,1504.3481 L704.7095,1509.4199 L707.0254,1509.4199 Z M704.3691,1502.1069 L707.3657,1502.1069 L710.7109,1514.5 L708.2622,1514.5 L707.4985,1511.437 L704.2197,1511.437 L703.4727,1514.5 L701.0239,1514.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="125" x="720" y="1513.5352">AbstractNodeHandler</text><rect fill="#FFFFFF" height="16.1328" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="103" x="853" y="1490"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="93" x="858" y="1502.6016">T extends Node</text><line style="stroke:#A80036;stroke-width:1.5;" x1="692" x2="952" y1="1525" y2="1525"/><line style="stroke:#A80036;stroke-width:1.5;" x1="692" x2="952" y1="1533" y2="1533"/><ellipse cx="702" cy="1544" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="161" x="711" y="1547.6348">AbstractNodeHandler(T node)</text><!--MD5=[ae82d90ea9f28f9a75f5a462d4509c47]
+class OperationHandler--><rect codeLine="102" fill="#FEFECE" filter="url(#ft1k9a5dlyplb)" height="198.5059" id="OperationHandler" style="stroke:#A80036;stroke-width:1.5;" width="908" x="499" y="1615"/><ellipse cx="835.75" cy="1631" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M835.6133,1626.3481 L834.4595,1631.4199 L836.7754,1631.4199 Z M834.1191,1624.1069 L837.1157,1624.1069 L840.4609,1636.5 L838.0122,1636.5 L837.2485,1633.437 L833.9697,1633.437 L833.2227,1636.5 L830.7739,1636.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="103" x="856.25" y="1635.5352">OperationHandler</text><rect fill="#FFFFFF" height="16.1328" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="121" x="1289" y="1612"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="119" x="1290" y="1624.6016">T extends Operation</text><line style="stroke:#A80036;stroke-width:1.5;" x1="500" x2="1406" y1="1647" y2="1647"/><polygon fill="#4177AF" points="510,1654,506,1660,514,1660" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="555" x="519" y="1661.6348">static void copyInputHeadersToRequestBuilder(ExecutionContext input, Request.Builder requestBuilder)</text><polygon fill="#4177AF" points="510,1666.9551,506,1672.9551,514,1672.9551" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="658" x="519" y="1674.5898">static void copyNodeHeadersToRequestBuilder(Operation node, ExecutionContext context, Request.Builder requestBuilder)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="500" x2="1406" y1="1680.9102" y2="1680.9102"/><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="507" y="1688.9102"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="250" x="519" y="1695.5449">String evaluatedUrl(ExecutionContext context)</text><polygon fill="#4177AF" points="510,1700.8652,506,1706.8652,514,1706.8652" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="230" x="519" y="1708.5">int beforeRequest(ExecutionContext input)</text><polygon fill="#4177AF" points="510,1713.8203,506,1719.8203,514,1719.8203" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="525" x="519" y="1721.4551">Response doRequest(ExecutionContext input, int requestTimeout, Request.Builder requestBuilder)</text><polygon fill="#4177AF" points="510,1726.7754,506,1732.7754,514,1732.7754" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="433" x="519" y="1734.4102">ExecutionContext handleResponse(ExecutionContext input, Response response)</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="507" y="1740.7305"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="882" x="519" y="1747.3652">private Response sendAndRetryRequestOnError(ExecutionContext context, Client client, Request request, int requestTimeout, int retryCount, int napOnRetryInMillis)</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="507" y="1753.6855"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="742" x="519" y="1760.3203">private Response executeRequest(ExecutionContext context, Client client, Request request, int requestTimeout, boolean inRetryWhileState)</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="507" y="1766.6406"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="511" x="519" y="1773.2754">private void validateResponse(ExecutionContext context, Request request, Response response)</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="507" y="1779.5957"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="139" x="519" y="1786.2305">private void nap(int millis)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="500" x2="1406" y1="1792.5508" y2="1792.5508"/><ellipse cx="510" cy="1803.5508" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="289" x="519" y="1807.1855">ExecutionContext execute(ExecutionContext context)</text><!--MD5=[b9b8c6612922766dbf3276cb0fc8b2c2]
+class GetHandler--><rect codeLine="117" fill="#FEFECE" filter="url(#ft1k9a5dlyplb)" height="107.8203" id="GetHandler" style="stroke:#A80036;stroke-width:1.5;" width="302" x="802" y="1875"/><ellipse cx="899.75" cy="1891" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M902.2231,1897.1431 Q901.6421,1897.4419 901.0029,1897.5913 Q900.3638,1897.7407 899.6582,1897.7407 Q897.1514,1897.7407 895.8315,1896.0889 Q894.5117,1894.437 894.5117,1891.3159 Q894.5117,1888.1865 895.8315,1886.5347 Q897.1514,1884.8828 899.6582,1884.8828 Q900.3638,1884.8828 901.0112,1885.0322 Q901.6587,1885.1816 902.2231,1885.4805 L902.2231,1888.2031 Q901.5923,1887.6221 900.9988,1887.3523 Q900.4053,1887.0825 899.7744,1887.0825 Q898.4297,1887.0825 897.7449,1888.1492 Q897.0601,1889.2158 897.0601,1891.3159 Q897.0601,1893.4077 897.7449,1894.4744 Q898.4297,1895.541 899.7744,1895.541 Q900.4053,1895.541 900.9988,1895.2712 Q901.5923,1895.0015 902.2231,1894.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="66" x="920.25" y="1895.5352">GetHandler</text><rect fill="#FFFFFF" height="16.1328" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="30" x="1077" y="1872"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="20" x="1082" y="1884.6016">Get</text><line style="stroke:#A80036;stroke-width:1.5;" x1="803" x2="1103" y1="1907" y2="1907"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="167" x="808" y="1921.6348">@Handler(forClass = Get.class)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="803" x2="1103" y1="1927.9551" y2="1927.9551"/><ellipse cx="813" cy="1938.9551" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="116" x="822" y="1942.5898">GetHandler(Get node)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="803" x2="1103" y1="1948.9102" y2="1948.9102"/><ellipse cx="813" cy="1959.9102" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="276" x="822" y="1963.5449">ExecutionContext execute(ExecutionContext input)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="0" x="825" y="1976.5"/><path d="M1045,6 L1045,92.5527 L1359,92.5527 L1359,16 L1349,6 L1045,6 " fill="#FBFB77" filter="url(#ft1k9a5dlyplb)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1349,6 L1349,16 L1359,16 L1349,6 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="284" x="1051" y="23.5684">Node Handler discovery is triggered by static</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="152" x="1051" y="38.8789">initialization at runtime.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="0" x="1055" y="54.1895"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="293" x="1051" y="69.5">Classes annotated with @Handler(forClass) are</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="132" x="1051" y="84.8105">registered to factory.</text><path d="M587.5,579.5 L587.5,588 L539.21,592 L587.5,596 L587.5,604.8105 A0,0 0 0 0 587.5,604.8105 L898.5,604.8105 A0,0 0 0 0 898.5,604.8105 L898.5,589.5 L888.5,579.5 L587.5,579.5 A0,0 0 0 0 587.5,579.5 " fill="#FBFB77" filter="url(#ft1k9a5dlyplb)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M888.5,579.5 L888.5,589.5 L898.5,589.5 L888.5,579.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="113" x="593.5" y="597.0684">Create handler for</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="33" x="710.5" y="597.0684">Node</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="35" x="747.5" y="597.0684">using</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="93" x="786.5" y="597.0684">handlerFactory</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="4" x="879.5" y="597.0684">.</text><path d="M461,847 L461,855.5 L413.22,859.5 L461,863.5 L461,872.3105 A0,0 0 0 0 461,872.3105 L579,872.3105 A0,0 0 0 0 579,872.3105 L579,857 L569,847 L461,847 A0,0 0 0 0 461,847 " fill="#FBFB77" filter="url(#ft1k9a5dlyplb)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M569,847 L569,857 L579,857 L569,847 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="97" x="467" y="864.5684">Execution state</text><path d="M1054,824 L1054,855.5 L998.81,859.5 L1054,863.5 L1054,895.2422 A0,0 0 0 0 1054,895.2422 L1428,895.2422 A0,0 0 0 0 1428,895.2422 L1428,834 L1418,824 L1054,824 A0,0 0 0 0 1054,824 " fill="#FBFB77" filter="url(#ft1k9a5dlyplb)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1418,824 L1418,834 L1428,834 L1418,824 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="9" x="1060" y="841.5684">A</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="49" x="1073" y="841.5684">Handler</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="127" x="1126" y="841.5684">must implement the</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="62" x="1257" y="841.5684">Execution</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="59" x="1323" y="841.5684">interface.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="23" x="1060" y="856.8789">The</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="33" x="1087" y="856.8789">Node</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="106" x="1124" y="856.8789">is injected to the</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="49" x="1234" y="856.8789">Handler</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="37" x="1287" y="856.8789">where</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="112" x="1060" y="872.1895">ExecutionContext</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="237" x="1176" y="872.1895">instance is passed by ancestor callee,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="226" x="1060" y="887.5">during traversal of execution graph.</text><path d="M329.5,1308 L329.5,1394.5527 L620.5,1394.5527 L620.5,1318 L610.5,1308 L329.5,1308 " fill="#FBFB77" filter="url(#ft1k9a5dlyplb)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M610.5,1308 L610.5,1318 L620.5,1318 L610.5,1308 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="235" x="335.5" y="1325.5684">The Handler is stateful and is created</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="229" x="335.5" y="1340.8789">for each node-execution at runtime.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="0" x="339.5" y="1356.1895"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="270" x="335.5" y="1371.5">This example demonstrates use of Handler</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="154" x="335.5" y="1386.8105">for a Http Get operation.</text><!--MD5=[8840c578b0e0927d8c54652077a3fa39]
+link GMN280 to support--><path d="M1202,93.03 C1202,107.215 1202,123.7125 1202,140.5253 C1202,142.6269 1202,144.7334 1202,146.841 C1202,147.1044 1202,147.3679 1202,147.6314 " fill="none" id="GMN280-support" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[4e61358d8abcafa5bd0cacce0cbbac85]
+reverse link Handlers to scanner--><path codeLine="25" d="M704,317.81 C704,333.95 704,350.5 704,364.55 " fill="none" id="Handlers-backto-scanner" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="704,304.42,700,310.42,704,316.42,708,310.42,704,304.42" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[d871a3de79db30f55418a7c0f52ed8aa]
+reverse link ExecutionContext to ExecutionContext.Builder--><path codeLine="68" d="M236,979.29 C236,1003.29 236,1028.12 236,1050.85 " fill="none" id="ExecutionContext-backto-ExecutionContext.Builder" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="236,974.18,232,983.18,236,979.18,240,983.18,236,974.18" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="40" x="241" y="1017.5684">build()</text><!--MD5=[adf5fab647bad8347ea1c469a201606b]
+reverse link Execution to AbstractHandler--><path d="M837.6,910.31 C833.65,968.2 827.26,1061.85 824.02,1109.34 " fill="none" id="Execution-backto-AbstractHandler" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="830.64,909.52,838.98,890.04,844.61,910.47,830.64,909.52" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[b18cb0dac48d62bfc23e7fd9d969166e]
+link GMN306 to handler--><path d="M475,1395.4 C475,1407.7925 475,1421.7831 475,1435.8347 C475,1439.3476 475,1442.8643 475,1446.3608 C475,1447.2349 475,1448.1077 475,1448.979 C475,1449.1968 475,1449.4145 475,1449.6321 " fill="none" id="GMN306-handler" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[2551c99dc05230a95e7a969f69833701]
+reverse link AbstractHandler to AbstractNodeHandler--><path codeLine="126" d="M813.07,1190.72 C807.46,1271.25 808.03,1427.73 814.78,1492.9 " fill="none" id="AbstractHandler-backto-AbstractNodeHandler" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="806.11,1189.96,814.77,1170.62,820.06,1191.14,806.11,1189.96" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[67b7ee240799a88192b13125af56daa9]
+link AbstractHandler to AbstractNodeHandler--><!--MD5=[d5bfa55a1b30530b4ef88ab29c2aac9c]
+reverse link AbstractNodeHandler to OperationHandler--><path codeLine="127" d="M853.98,1570.63 C863.35,1584.16 873.99,1599.5 884.72,1614.99 " fill="none" id="AbstractNodeHandler-backto-OperationHandler" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="848.11,1574.46,842.47,1554.03,859.62,1566.48,848.11,1574.46" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7750d886bb0e7a03892349d41225d540]
+reverse link OperationHandler to GetHandler--><path codeLine="128" d="M953,1834.4 C953,1848.56 953,1862.41 953,1874.94 " fill="none" id="OperationHandler-backto-GetHandler" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="946,1834.28,953,1814.28,960,1834.28,946,1834.28" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c23434db23b374fa636b7f6f72b8891e]
+link executor to context--><!--MD5=[69b35cefe71ca946e981b026470c02fb]
+link context to base--><!--MD5=[a3fa4f911a047cec3443ca87c6a21e22]
+link support to base--><!--MD5=[6a5d1bfea6bcac4591cd1eb034f0c7e2]
+link support to handler--><!--MD5=[516ae5dc73a8f3334a25de93e6a120eb]
+@startuml
+
+note top of support
+Node Handler discovery is triggered by static
+initialization at runtime.
+
+Classes annotated with @Handler(forClass) are
+registered to factory.
+end note
+
+package "core.handler.support" as support {
+    class Handlers {
+        -Map<Class<? extends Base>, Class<? extends AbstractHandler>> handlerFactory
+        -Map<String, Class<?>> supportHandlerFactory
+        - -
+        +static <N extends Base> AbstractHandler<N> createHandlerFor(N node)
+        +static <R> R createSupportHandlerFor(Class<? extends Base> forNodeClass, Class<?> selectorClass)
+        +static <N extends Base> AbstractHandler<N> createCompositionHandlerFor(N node, Class<? extends Base> forNodeClass, Class<? extends Base> selectorNodeClass)
+    }
+
+    class "Handlers.NodeFactoryHolder" as scanner {
+        ~static {}
+        ~static Set<Class<? extends AbstractHandler>> nodeHandlerDiscovery(String... packageNames)
+    }
+
+    Handlers *.. scanner
+}
+
+package "core.handler.executor" as executor {
+    class Executor {
+        +static <N extends Base> Execution instanceOf(N node)
+        +static <N extends Base> ExecutionContext execute(N node, ExecutionContext input)
+    }
+}
+note right of Executor : Create handler for <i>Node</i> using <i>handlerFactory</i>.
+
+package "core.handler.context" as context {
+    class ExecutionContext {
+        +static ExecutionContext empty()
+        +static ExecutionContext of(ExecutionContext input)
+        - -
+        +ExecutionContext join(ExecutionContext anotherContext)
+        +Services services()
+        +ExecutionContext globalState(Object key, Object value)
+        +<R> R globalStateIfAbsent(Object key, Supplier<R> supplier)
+        +Map<String, Object> variables()
+        +Object variable(String key)
+        +ExecutionContext variable(String key, Object value)
+        +ExecutionContext state(Object key, Object value)
+        +<R> R state(Class<R> key)
+        +<R> R state(Object key)
+        +void releaseState(Object key)
+        +ExecutionContext merge(ExecutionContext context)
+    }
+
+    class ExecutionContext.Builder {
+        +Builder services(Services services)
+        +Builder services(ExecutionContext input)
+        +Builder globalState(Map<Object, Object> globalState)
+        +Builder globalState(ExecutionContext input)
+        +Builder variables(Map<String, Object> variables)
+        +Builder variables(ExecutionContext input)
+        +Builder state(Map<Object, Object> state)
+        +Builder state(ExecutionContext input)
+        +Builder of(ExecutionContext input)
+        +ExecutionContext build()
+    }
+
+    ExecutionContext <.. ExecutionContext.Builder : " build()"
+}
+
+note right of ExecutionContext : Execution state
+
+package "core.handle.base" as base {
+    interface Execution {
+        +ExecutionContext execute(ExecutionContext context)
+    }
+
+    abstract class AbstractHandler<N extends Base> implements Execution {
+        ~ExecutionContext configureContext(ExecutionContext context)
+    }
+}
+
+note right of Execution
+A <i>Handler</i> must implement the <i>Execution</i> interface.
+The <i>Node</i> is injected to the <i>Handler</i> where
+<i>ExecutionContext</i> instance is passed by ancestor callee,
+during traversal of execution graph.
+end note
+
+note top of handler
+The Handler is stateful and is created
+for each node-execution at runtime.
+
+This example demonstrates use of Handler
+for a Http Get operation.
+end note
+
+package "core.handler.http" as handler {
+    abstract class AbstractNodeHandler < T extends Node > {
+        +AbstractNodeHandler(T node)
+    }
+    abstract class OperationHandler<T extends Operation> {
+        ~static void copyInputHeadersToRequestBuilder(ExecutionContext input, Request.Builder requestBuilder)
+        ~static void copyNodeHeadersToRequestBuilder(Operation node, ExecutionContext context, Request.Builder requestBuilder)
+        - -
+        -String evaluatedUrl(ExecutionContext context)
+        ~int beforeRequest(ExecutionContext input)
+        ~Response doRequest(ExecutionContext input, int requestTimeout, Request.Builder requestBuilder)
+        ~ExecutionContext handleResponse(ExecutionContext input, Response response)
+        -private Response sendAndRetryRequestOnError(ExecutionContext context, Client client, Request request, int requestTimeout, int retryCount, int napOnRetryInMillis)
+        -private Response executeRequest(ExecutionContext context, Client client, Request request, int requestTimeout, boolean inRetryWhileState)
+        -private void validateResponse(ExecutionContext context, Request request, Response response)
+        -private void nap(int millis)
+        - -
+        +ExecutionContext execute(ExecutionContext context)
+    }
+    class GetHandler < Get > {
+        @Handler(forClass = Get.class)
+        - -
+        +GetHandler(Get node)
+        - -
+        +ExecutionContext execute(ExecutionContext input)
+
+    }
+
+    AbstractNodeHandler -u-|> AbstractHandler
+    OperationHandler -u-|> AbstractNodeHandler
+    GetHandler -u-|> OperationHandler
+}
+
+
+'support -[hidden]- - executor
+executor -[hidden]- context
+context -[hidden] base
+support -[hidden]- - base
+support -[hidden]- - - - - - handler
+AbstractHandler -[hidden]- - AbstractNodeHandler
+
+@enduml
+
+@startuml
+
+note top of support
+Node Handler discovery is triggered by static
+initialization at runtime.
+
+Classes annotated with @Handler(forClass) are
+registered to factory.
+end note
+
+package "core.handler.support" as support {
+    class Handlers {
+        -Map<Class<? extends Base>, Class<? extends AbstractHandler>> handlerFactory
+        -Map<String, Class<?>> supportHandlerFactory
+        - -
+        +static <N extends Base> AbstractHandler<N> createHandlerFor(N node)
+        +static <R> R createSupportHandlerFor(Class<? extends Base> forNodeClass, Class<?> selectorClass)
+        +static <N extends Base> AbstractHandler<N> createCompositionHandlerFor(N node, Class<? extends Base> forNodeClass, Class<? extends Base> selectorNodeClass)
+    }
+
+    class "Handlers.NodeFactoryHolder" as scanner {
+        ~static {}
+        ~static Set<Class<? extends AbstractHandler>> nodeHandlerDiscovery(String... packageNames)
+    }
+
+    Handlers *.. scanner
+}
+
+package "core.handler.executor" as executor {
+    class Executor {
+        +static <N extends Base> Execution instanceOf(N node)
+        +static <N extends Base> ExecutionContext execute(N node, ExecutionContext input)
+    }
+}
+note right of Executor : Create handler for <i>Node</i> using <i>handlerFactory</i>.
+
+package "core.handler.context" as context {
+    class ExecutionContext {
+        +static ExecutionContext empty()
+        +static ExecutionContext of(ExecutionContext input)
+        - -
+        +ExecutionContext join(ExecutionContext anotherContext)
+        +Services services()
+        +ExecutionContext globalState(Object key, Object value)
+        +<R> R globalStateIfAbsent(Object key, Supplier<R> supplier)
+        +Map<String, Object> variables()
+        +Object variable(String key)
+        +ExecutionContext variable(String key, Object value)
+        +ExecutionContext state(Object key, Object value)
+        +<R> R state(Class<R> key)
+        +<R> R state(Object key)
+        +void releaseState(Object key)
+        +ExecutionContext merge(ExecutionContext context)
+    }
+
+    class ExecutionContext.Builder {
+        +Builder services(Services services)
+        +Builder services(ExecutionContext input)
+        +Builder globalState(Map<Object, Object> globalState)
+        +Builder globalState(ExecutionContext input)
+        +Builder variables(Map<String, Object> variables)
+        +Builder variables(ExecutionContext input)
+        +Builder state(Map<Object, Object> state)
+        +Builder state(ExecutionContext input)
+        +Builder of(ExecutionContext input)
+        +ExecutionContext build()
+    }
+
+    ExecutionContext <.. ExecutionContext.Builder : " build()"
+}
+
+note right of ExecutionContext : Execution state
+
+package "core.handle.base" as base {
+    interface Execution {
+        +ExecutionContext execute(ExecutionContext context)
+    }
+
+    abstract class AbstractHandler<N extends Base> implements Execution {
+        ~ExecutionContext configureContext(ExecutionContext context)
+    }
+}
+
+note right of Execution
+A <i>Handler</i> must implement the <i>Execution</i> interface.
+The <i>Node</i> is injected to the <i>Handler</i> where
+<i>ExecutionContext</i> instance is passed by ancestor callee,
+during traversal of execution graph.
+end note
+
+note top of handler
+The Handler is stateful and is created
+for each node-execution at runtime.
+
+This example demonstrates use of Handler
+for a Http Get operation.
+end note
+
+package "core.handler.http" as handler {
+    abstract class AbstractNodeHandler < T extends Node > {
+        +AbstractNodeHandler(T node)
+    }
+    abstract class OperationHandler<T extends Operation> {
+        ~static void copyInputHeadersToRequestBuilder(ExecutionContext input, Request.Builder requestBuilder)
+        ~static void copyNodeHeadersToRequestBuilder(Operation node, ExecutionContext context, Request.Builder requestBuilder)
+        - -
+        -String evaluatedUrl(ExecutionContext context)
+        ~int beforeRequest(ExecutionContext input)
+        ~Response doRequest(ExecutionContext input, int requestTimeout, Request.Builder requestBuilder)
+        ~ExecutionContext handleResponse(ExecutionContext input, Response response)
+        -private Response sendAndRetryRequestOnError(ExecutionContext context, Client client, Request request, int requestTimeout, int retryCount, int napOnRetryInMillis)
+        -private Response executeRequest(ExecutionContext context, Client client, Request request, int requestTimeout, boolean inRetryWhileState)
+        -private void validateResponse(ExecutionContext context, Request request, Response response)
+        -private void nap(int millis)
+        - -
+        +ExecutionContext execute(ExecutionContext context)
+    }
+    class GetHandler < Get > {
+        @Handler(forClass = Get.class)
+        - -
+        +GetHandler(Get node)
+        - -
+        +ExecutionContext execute(ExecutionContext input)
+
+    }
+
+    AbstractNodeHandler -u-|> AbstractHandler
+    OperationHandler -u-|> AbstractNodeHandler
+    GetHandler -u-|> OperationHandler
+}
+
+
+executor -[hidden]- context
+context -[hidden] base
+support -[hidden]- - base
+support -[hidden]- - - - - - handler
+AbstractHandler -[hidden]- - AbstractNodeHandler
+
+@enduml
+
+PlantUML version 1.2020.26(Mon Dec 21 18:45:07 CET 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: NO
+--></g></svg>

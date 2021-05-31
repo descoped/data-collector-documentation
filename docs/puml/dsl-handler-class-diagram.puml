@@ -1,0 +1,140 @@
+@startuml
+
+note top of support
+Node Handler discovery is triggered by static
+initialization at runtime.
+
+Classes annotated with @Handler(forClass) are
+registered to factory.
+end note
+
+package "core.handler.support" as support {
+    class Handlers {
+        -Map<Class<? extends Base>, Class<? extends AbstractHandler>> handlerFactory
+        -Map<String, Class<?>> supportHandlerFactory
+        --
+        +static <N extends Base> AbstractHandler<N> createHandlerFor(N node)
+        +static <R> R createSupportHandlerFor(Class<? extends Base> forNodeClass, Class<?> selectorClass)
+        +static <N extends Base> AbstractHandler<N> createCompositionHandlerFor(N node, Class<? extends Base> forNodeClass, Class<? extends Base> selectorNodeClass)
+    }
+
+    class "Handlers.NodeFactoryHolder" as scanner {
+        ~static {}
+        ~static Set<Class<? extends AbstractHandler>> nodeHandlerDiscovery(String... packageNames)
+    }
+
+    Handlers *.. scanner
+}
+
+package "core.handler.executor" as executor {
+    class Executor {
+        +static <N extends Base> Execution instanceOf(N node)
+        +static <N extends Base> ExecutionContext execute(N node, ExecutionContext input)
+    }
+}
+note right of Executor : Create handler for <i>Node</i> using <i>handlerFactory</i>.
+
+package "core.handler.context" as context {
+    class ExecutionContext {
+        +static ExecutionContext empty()
+        +static ExecutionContext of(ExecutionContext input)
+        --
+        +ExecutionContext join(ExecutionContext anotherContext)
+        +Services services()
+        +ExecutionContext globalState(Object key, Object value)
+        +<R> R globalStateIfAbsent(Object key, Supplier<R> supplier)
+        +Map<String, Object> variables()
+        +Object variable(String key)
+        +ExecutionContext variable(String key, Object value)
+        +ExecutionContext state(Object key, Object value)
+        +<R> R state(Class<R> key)
+        +<R> R state(Object key)
+        +void releaseState(Object key)
+        +ExecutionContext merge(ExecutionContext context)
+    }
+
+    class ExecutionContext.Builder {
+        +Builder services(Services services)
+        +Builder services(ExecutionContext input)
+        +Builder globalState(Map<Object, Object> globalState)
+        +Builder globalState(ExecutionContext input)
+        +Builder variables(Map<String, Object> variables)
+        +Builder variables(ExecutionContext input)
+        +Builder state(Map<Object, Object> state)
+        +Builder state(ExecutionContext input)
+        +Builder of(ExecutionContext input)
+        +ExecutionContext build()
+    }
+
+    ExecutionContext <.. ExecutionContext.Builder : " build()"
+}
+
+note right of ExecutionContext : Execution state
+
+package "core.handle.base" as base {
+    interface Execution {
+        +ExecutionContext execute(ExecutionContext context)
+    }
+
+    abstract class AbstractHandler<N extends Base> implements Execution {
+        ~ExecutionContext configureContext(ExecutionContext context)
+    }
+}
+
+note right of Execution
+A <i>Handler</i> must implement the <i>Execution</i> interface.
+The <i>Node</i> is injected to the <i>Handler</i> where
+<i>ExecutionContext</i> instance is passed by ancestor callee,
+during traversal of execution graph.
+end note
+
+note top of handler
+The Handler is stateful and is created
+for each node-execution at runtime.
+
+This example demonstrates use of Handler
+for a Http Get operation.
+end note
+
+package "core.handler.http" as handler {
+    abstract class AbstractNodeHandler < T extends Node > {
+        +AbstractNodeHandler(T node)
+    }
+    abstract class OperationHandler<T extends Operation> {
+        ~static void copyInputHeadersToRequestBuilder(ExecutionContext input, Request.Builder requestBuilder)
+        ~static void copyNodeHeadersToRequestBuilder(Operation node, ExecutionContext context, Request.Builder requestBuilder)
+        --
+        -String evaluatedUrl(ExecutionContext context)
+        ~int beforeRequest(ExecutionContext input)
+        ~Response doRequest(ExecutionContext input, int requestTimeout, Request.Builder requestBuilder)
+        ~ExecutionContext handleResponse(ExecutionContext input, Response response)
+        -private Response sendAndRetryRequestOnError(ExecutionContext context, Client client, Request request, int requestTimeout, int retryCount, int napOnRetryInMillis)
+        -private Response executeRequest(ExecutionContext context, Client client, Request request, int requestTimeout, boolean inRetryWhileState)
+        -private void validateResponse(ExecutionContext context, Request request, Response response)
+        -private void nap(int millis)
+        --
+        +ExecutionContext execute(ExecutionContext context)
+    }
+    class GetHandler < Get > {
+        @Handler(forClass = Get.class)
+        --
+        +GetHandler(Get node)
+        --
+        +ExecutionContext execute(ExecutionContext input)
+
+    }
+
+    AbstractNodeHandler -u-|> AbstractHandler
+    OperationHandler -u-|> AbstractNodeHandler
+    GetHandler -u-|> OperationHandler
+}
+
+
+'support -[hidden]-- executor
+executor -[hidden]- context
+context -[hidden] base
+support -[hidden]-- base
+support -[hidden]------ handler
+AbstractHandler -[hidden]-- AbstractNodeHandler
+
+@enduml

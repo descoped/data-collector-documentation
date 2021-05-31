@@ -1,0 +1,247 @@
+@startuml
+
+package "api.specification" as specification {
+    class Specification {
+        +String id()
+        +String name()
+        +Node startFunction()
+        --
+        +static SpecificationBuilder start(String specificationId, String name, String startFunction)
+        +static SpecificationBuilder deserialize(String source)
+        +static <R extends AbstractBuilder> R deserialize(String source, Class<R> builderClass)
+        +static Specification create(String specificationId, String name, Node startFunction, Map<String, Node> nodeById)
+        +static Specification create(String specificationId, String name, Configurations configurations, Node startFunction, Map<String, Node> nodeById)
+    }
+}
+
+package "api.base" as base {
+    interface Base
+    interface Leaf
+    interface Node {
+        +Configurations configurations()
+        +String toPrintableExecutionPlan()
+    }
+    interface NodeWithId {
+        +String id()
+    }
+
+    Base <|-- Leaf
+    Base <|-- Node
+    Node <|-- NodeWithId
+}
+
+package "api.functions (NodeWithId)" as functions {
+    interface OperationPublisher
+    interface BodyPublisher extends OperationPublisher {
+        +FormEncoding getEncoding()
+        +BodyPublisherProducer getPlainText()
+        +BodyPublisherProducer getUrlEncodedData()
+        +List<BodyPart> getParts()
+    }
+    interface Operation {
+        +String url()
+        +Headers headers()
+        +List<Validator> responseValidators()
+        +List<? extends Node> steps()
+        +List<String> returnVariables()
+    }
+    interface Get extends Operation {
+        +List<HttpStatusRetryWhile> retryWhile()
+    }
+    interface Put extends Operation {
+        +BodyPublisher bodyPublisher()
+    }
+    interface Post extends Operation {
+        +BodyPublisher bodyPublisher()
+    }
+    interface Delete extends Operation
+    interface Paginate {
+        +Set<String> variableNames()
+        +String variable(String name)
+        +boolean addPageContent()
+        +String positionVariable()
+        +List<Execute> targets()
+        +int threshold()
+        +Condition condition()
+    }
+
+    OperationPublisher --|> Leaf
+}
+
+package "api.steps (Node)" as steps {
+    interface Execute {
+        +String executeId()
+        +List<String> requiredInputs()
+        +Map<String, Query> inputVariable()
+        +NodeWithId target()
+    }
+    interface Process {
+        +Class<? extends Processor> processorClass()
+        +Set<String> requiredOutputs()
+    }
+    interface Sequence {
+        +Query splitToListQuery()
+        +Query expectedQuery()
+    }
+    interface NextPage {
+        +Map<String, Query> outputs()
+    }
+    interface Parallel {
+        +Query splitQuery()
+        +Set<String> variableNames()
+        +Query variable(String name)
+        +List<Node> steps()
+        +Publish publish()
+    }
+    interface Publish {
+        +String positionVariableExpression()
+    }
+    interface AddContent {
+        +String positionVariableExpression()
+        +String contentKey()
+        +Map<String, Object> state()
+    }
+    interface ForEach {
+        +Query splitToListQuery()
+        +List<? extends Node> steps()
+    }
+    interface Console {
+        +void log()
+    }
+}
+
+package "api.config (Configuration)" as config {
+    interface Identity {
+        +String id()
+    }
+    interface JwtIdentity extends Identity {
+        +JwtHeaderClaims headerClaims()
+        +JwtClaims claims()
+    }
+    class Configurations {
+        +FlowContext flowContext()
+        +Security security()
+    }
+    interface Configuration
+    interface FlowContext extends Configuration {
+        +String topic()
+        +ExecutionContext globalContext()
+    }
+    interface Security extends Configuration {
+        +String sslBundleName()
+        +List<Identity> identities()
+    }
+
+    Configurations *.. Configuration
+}
+
+package "api.validation (Validators)" as validation {
+    interface Validator
+    interface HttpStatusValidation extends Validator {
+        +Map<HttpStatus, List<ResponsePredicate>> success()
+        +List<HttpStatus> failed()
+    }
+    interface HttpStatusRetryWhile extends Validator {
+        +Integer statusCode()
+        +TimeUnit duration()
+        +Integer amount()
+        +BodyContains bodyContains()
+    }
+}
+
+package "api.response (Predicates)" as response {
+    interface ResponsePredicate
+    interface BodyContains extends ResponsePredicate {
+        +Query getQuery()
+        +String getEqualToStringLiteral()
+    }
+}
+
+package "api.publisher (Publishers)" as publisher {
+    interface BodyPublisherProducer
+    interface IdentityTokenBodyPublisherProducer extends BodyPublisherProducer
+    interface JwtTokenBodyPublisherProducer extends IdentityTokenBodyPublisherProducer {
+        +Identity identity()
+        +String bindTo()
+        +String token()
+    }
+    interface StringBodyPublisherProducer extends BodyPublisherProducer {
+        +String text()
+    }
+}
+
+package "api.queryFeature (Factory)" as queryFeature {
+    abstract class AbstractQueryHandler<Query|Body> implements QueryFeature {
+        +ExecutionContext execute(ExecutionContext input)
+    }
+    interface QueryFeature {
+        +List<?> evaluateList(Object data)
+        +Object evaluateObject(Object data)
+        +String evaluateStringLiteral(Object data)
+    }
+    interface DocumentParserFeature {
+        +byte[] serialize(Object document)
+        +Object deserialize(byte[] source)
+        +void tokenDeserializer(InputStream source, Consumer<Object> entryCallback)
+    }
+    class JqPathParser implements DocumentParserFeature {
+    }
+    class XPathParser implements DocumentParserFeature {
+    }
+    class JsonTokenParser implements DocumentParserFeature {
+    }
+    class XmlTokenParser implements DocumentParserFeature {
+    }
+    class Queries {
+        +static QueryFeature from(Query query)
+        +static QueryFeature from(ExecutionContext context, Query query)
+    }
+}
+
+package "api.query (Queries)" as query {
+    interface Body
+    interface Query {
+        +String expression()
+    }
+    interface Eval extends Query {
+        +Query query()
+        +String bind()
+    }
+    interface RegEx extends Query {
+        +Query query()
+    }
+    interface JqPath extends Query
+    interface XPath extends Query
+    interface JsonToken extends Query
+    interface XmlToken extends Query
+
+    Body --|> Base
+}
+
+package "api.condition (Conditions)" as condition {
+    interface Condition {
+        +String identifier()
+    }
+    interface WhenVariableIsNull extends Condition {
+    }
+    interface WhenExpressionIsTrue  extends Condition {
+    }
+}
+
+
+Base -up---|> condition
+queryFeature -down--> query
+Base -up---|> query
+
+Leaf -u-|> config
+Leaf -d-|> validation
+Leaf -d--|> publisher
+Leaf -d--|> response
+
+Node -up--|> steps
+
+NodeWithId -d-|> functions
+
+Specification *.d. base
+
+@enduml
