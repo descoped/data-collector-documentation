@@ -10,7 +10,42 @@ ifdef::env-github[]
 endif::[]
 
 
-== Diagrams
+== DSL
+
+A bespoke Domain Specific Language (DSL) is implemneted for the Data Collector that
+
+=== Base Builders
+
+==== AbstractBuilder
+
+The _AbstractBuilder_ is a common ancestor for all Builders.
+
+==== NodeBuilder
+
+The _NodeBuilder_ is used in conjunction with NodeWithId (a function).
+
+=== Specification Builders
+
+=== Configuration Builders
+
+=== Function Builders
+
+==== Pagination Builder
+
+===== Condition Builder
+
+==== Http Builders
+
+===== Security Builders
+
+===== Validation Builders
+
+===== Response Builders
+
+=== Step Builders
+
+=== Query Builders
+
 
 ifdef::env-github[]
 == Domain Builder Class diagram
@@ -27,9 +62,6 @@ image::diagrams/builder-class-diagram.svg[alt="Builder Class Diagram", max-width
 
 == Specification Builder Class diagram
 image::diagrams/specification-builder-class-diagram.svg[alt="Http Builder Class Diagram", max-width=1024, link="diagrams/specification-builder-class-diagram.svg"]
-
-== Http Builder Class diagram
-image::diagrams/http-builder-class-diagram.svg[alt="Http Builder Class Diagram", max-width=1024, link="diagrams/http-builder-class-diagram.svg"]
 
 endif::[]
 
@@ -48,8 +80,5 @@ plantuml::puml/builder-class-diagram.puml[format=svg, alt="Builder Class Diagram
 
 == Specification Builder Class diagram
 plantuml::puml/specification-builder-class-diagram.puml[format=svg, alt="Http Builder Class Diagram", max-width=1024, link="specification-builder-class-diagram.svg"]
-
-== Http Builder Class diagram
-plantuml::puml/http-builder-class-diagram.puml[format=svg, alt="Http Builder Class Diagram", max-width=1024, link="http-builder-class-diagram.svg"]
 
 endif::[]

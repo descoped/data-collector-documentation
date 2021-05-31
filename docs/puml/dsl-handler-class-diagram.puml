@@ -3,10 +3,16 @@
 note top of support
 Node Handler discovery is triggered by static
 initialization at runtime.
+
+Classes annotated with @Handler(forClass) are
+registered to factory.
 end note
 
 package "core.handler.support" as support {
     class Handlers {
+        -Map<Class<? extends Base>, Class<? extends AbstractHandler>> handlerFactory
+        -Map<String, Class<?>> supportHandlerFactory
+        --
         +static <N extends Base> AbstractHandler<N> createHandlerFor(N node)
         +static <R> R createSupportHandlerFor(Class<? extends Base> forNodeClass, Class<?> selectorClass)
         +static <N extends Base> AbstractHandler<N> createCompositionHandlerFor(N node, Class<? extends Base> forNodeClass, Class<? extends Base> selectorNodeClass)
@@ -26,6 +32,7 @@ package "core.handler.executor" as executor {
         +static <N extends Base> ExecutionContext execute(N node, ExecutionContext input)
     }
 }
+note right of Executor : Create handler for <i>Node</i> using <i>handlerFactory</i>.
 
 package "core.handler.context" as context {
     class ExecutionContext {
@@ -62,6 +69,8 @@ package "core.handler.context" as context {
     ExecutionContext <.. ExecutionContext.Builder : " build()"
 }
 
+note right of ExecutionContext : Execution state
+
 package "core.handle.base" as base {
     interface Execution {
         +ExecutionContext execute(ExecutionContext context)
@@ -71,6 +80,13 @@ package "core.handle.base" as base {
         ~ExecutionContext configureContext(ExecutionContext context)
     }
 }
+
+note right of Execution
+A <i>Handler</i> must implement the <i>Execution</i> interface.
+The <i>Node</i> is injected to the <i>Handler</i> where
+<i>ExecutionContext</i> instance is passed by ancestor callee,
+during traversal of execution graph.
+end note
 
 note top of handler
 The Handler is stateful and is created
@@ -103,6 +119,7 @@ package "core.handler.http" as handler {
         @Handler(forClass = Get.class)
         --
         +GetHandler(Get node)
+        --
         +ExecutionContext execute(ExecutionContext input)
 
     }
@@ -111,6 +128,7 @@ package "core.handler.http" as handler {
     OperationHandler -u-|> AbstractNodeHandler
     GetHandler -u-|> OperationHandler
 }
+
 
 'support -[hidden]-- executor
 executor -[hidden]- context
