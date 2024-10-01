@@ -1,31 +1,50 @@
 @startuml
 
-interface Client {
-    Version version()
-    Response send(Request request)
-    Response send(Request request, BodyHandler<R> bodyHandler)
-    CompletableFuture<Response> sendAsync(Request request)
-    CompletableFuture<Response> sendAsync(Request request, BodyHandler<RESULT> bodyHandler)
-    Object getDelegate()
-    --
-    static Client newClient()
-    static Builder newClientBuilder()
+skinparam packageStyle rectangle
+skinparam class {
+    BackgroundColor white
+    ArrowColor #2C3E50
+    BorderColor #2C3E50
 }
-interface Client.Builder {
-    Builder version(Version version)
-    Builder priority(int priority)
-    Builder authenticator(Authenticator authenticator)
-    Builder sslContext(SSLContext sslContext)
-    Builder sslParameters(SSLParameters sslParameters)
-    Builder x509TrustManager(X509TrustManager trustManager)
-    Builder executor(Executor executor)
-    Builder connectTimeout(Duration duration)
-    Builder followRedirects(Redirect policy)
-    Builder proxy(ProxySelector proxySelector)
-    Client build()
-    --
+skinparam interface {
+    BackgroundColor #E8F8F5
+    BorderColor #27AE60
+}
+skinparam enum {
+    BackgroundColor #FCF3CF
+    BorderColor #F1C40F
 }
 
+' Client interface and its builder
+interface Client {
+    + Version version()
+    + Response send(Request request)
+    + <R> Response send(Request request, BodyHandler<R> bodyHandler)
+    + CompletableFuture<Response> sendAsync(Request request)
+    + <RESULT> CompletableFuture<Response> sendAsync(Request request, BodyHandler<RESULT> bodyHandler)
+    + Object getDelegate()
+    --
+    + {static} Client newClient()
+    + {static} Builder newClientBuilder()
+}
+
+interface "Client.Builder" as ClientBuilder {
+    + Builder version(Version version)
+    + Builder priority(int priority)
+    + Builder authenticator(Authenticator authenticator)
+    + Builder sslContext(SSLContext sslContext)
+    + Builder sslParameters(SSLParameters sslParameters)
+    + Builder x509TrustManager(X509TrustManager trustManager)
+    + Builder executor(Executor executor)
+    + Builder connectTimeout(Duration duration)
+    + Builder followRedirects(Redirect policy)
+    + Builder proxy(ProxySelector proxySelector)
+    + Client build()
+}
+
+Client *-- ClientBuilder
+
+' HTTP Method enum
 enum Method {
     GET
     PUT
@@ -33,81 +52,95 @@ enum Method {
     DELETE
     OPTIONS
 }
+
+' Request interface and its builder
 interface Request {
-    String url()
-    Method method()
-    Headers headers()
-    Object getDelegate()
+    + String url()
+    + Method method()
+    + Headers headers()
+    + Object getDelegate()
     --
-    static Builder newRequestBuilder()
-}
-interface Request.Builder {
-    Builder url(String url)
-    Builder header(String name, String value)
-    Builder expectContinue(boolean enable)
-    Builder timeout(Duration duration)
-    Builder GET()
-    Builder PUT(byte[] bytes)
-    Builder PUT(Flow.Publisher<ByteBuffer> bodyPublisher)
-    Builder POST(byte[] bytes)
-    Builder POST(Flow.Publisher<ByteBuffer> bodyPublisher)
-    Builder DELETE()
-    Request build()
-    --
+    + {static} Builder newRequestBuilder()
 }
 
+interface "Request.Builder" as RequestBuilder {
+    + Builder url(String url)
+    + Builder header(String name, String value)
+    + Builder expectContinue(boolean enable)
+    + Builder timeout(Duration duration)
+    + Builder GET()
+    + Builder PUT(byte[] bytes)
+    + Builder PUT(Flow.Publisher<ByteBuffer> bodyPublisher)
+    + Builder POST(byte[] bytes)
+    + Builder POST(Flow.Publisher<ByteBuffer> bodyPublisher)
+    + Builder DELETE()
+    + Request build()
+}
+
+Request *-- RequestBuilder
+Request -- Method
+
+' Response interface and its builder
 interface Response {
-    String url()
-    Headers headers()
-    int statusCode()
-    byte[] body()
-    <R> Optional<BodyHandler<R>> bodyHandler()
-    Optional<Response> previousResponse()
+    + String url()
+    + Headers headers()
+    + int statusCode()
+    + byte[] body()
+    + <R> Optional<BodyHandler<R>> bodyHandler()
+    + Optional<Response> previousResponse()
     --
-    static Builder newResponseBuilder()
-}
-interface Response.Builder {
-    Builder delegate(Object delegate)
-    <R> void bodyHandler(BodyHandler<R> bodyHandler)
-    Response build()
-    --
+    + {static} Builder newResponseBuilder()
 }
 
+interface "Response.Builder" as ResponseBuilder {
+    + Builder delegate(Object delegate)
+    + <R> void bodyHandler(BodyHandler<R> bodyHandler)
+    + Response build()
+}
+
+Response *-- ResponseBuilder
+
+' BodyHandler interface
 interface BodyHandler<T> << Flow.Subscriber<List<ByteBuffer>> >> {
-    T body()
+    + T body()
 }
 
-Response.Builder *-up- Response
-Request.Builder *-up- Request
-Response -up- BodyHandler
-Request -right- Method
-Client.Builder *-up-- Client
+Response -- BodyHandler
 
-
-package java.httpClient.native #EEE {
+' Native HTTP Client package
+package "java.httpClient.native" {
     class HttpClientDelegate
-    class HttpClientDelegate.ClientBuilder
+    class "HttpClientDelegate.ClientBuilder" as HttpClientDelegateBuilder
     class HttpRequestDelegate
-    class HttpRequestDelegate.RequestBuilder
+    class "HttpRequestDelegate.RequestBuilder" as HttpRequestDelegateBuilder
     class HttpResponseDelegate
-    class HttpResponseDelegate.ResponseBuilder
+    class "HttpResponseDelegate.ResponseBuilder" as HttpResponseDelegateBuilder
 }
 
-package http.bodySubscriber #EEE {
+' HTTP Body Subscriber package
+package "http.bodySubscriber" {
     class FileBodyHandler<Path> <<BodyHandler>>
     class TempFileBodyHandler<Path> <<FileBodyHandler>>
 }
 
-BodyHandler <|-up- FileBodyHandler
-FileBodyHandler <|-up- TempFileBodyHandler
+' Relationships
+BodyHandler <|.. FileBodyHandler
+FileBodyHandler <|-- TempFileBodyHandler
 
-Response <|--- HttpResponseDelegate
-Response.Builder <|--- HttpResponseDelegate.ResponseBuilder
+Response <|.. HttpResponseDelegate
+ResponseBuilder <|.. HttpResponseDelegateBuilder
 
-Request <|--- HttpRequestDelegate
-Request.Builder <|--- HttpRequestDelegate.RequestBuilder
+Request <|.. HttpRequestDelegate
+RequestBuilder <|.. HttpRequestDelegateBuilder
 
-Client <|--- HttpClientDelegate
-Client.Builder <|--- HttpClientDelegate.ClientBuilder
+Client <|.. HttpClientDelegate
+ClientBuilder <|.. HttpClientDelegateBuilder
+
+' Layout improvements
+Client -[hidden]right- Request
+Request -[hidden]right- Response
+Response -[hidden]down- BodyHandler
+Method -[hidden]down- "java.httpClient.native"
+"java.httpClient.native" -[hidden]right- "http.bodySubscriber"
 
 @enduml

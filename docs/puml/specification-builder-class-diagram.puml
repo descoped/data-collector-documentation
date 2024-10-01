@@ -1,160 +1,150 @@
 @startuml
 
+skinparam class {
+    BackgroundColor white
+    ArrowColor #2C3E50
+    BorderColor #2C3E50
+}
+skinparam interface {
+    BackgroundColor #E8F8F5
+    BorderColor #27AE60
+}
+
 class NodeBuilderDeserializer << StdDeserializer<AbstractBuilder> >> {
-    -String nodePath(Deque<JsonNode> ancestors)
-    -AbstractBuilder handleNodeBuilder(...)
-    -AbstractBuilder buildNodeBuilder(...)
-    --
-    +AbstractBuilder deserialize(JsonParser jsonParser, DeserializationContext context)
+    - String nodePath(Deque<JsonNode> ancestors)
+    - AbstractBuilder handleNodeBuilder(...)
+    - AbstractBuilder buildNodeBuilder(...)
+    + AbstractBuilder deserialize(JsonParser jsonParser, DeserializationContext context)
 }
 
-abstract class AbstractBuilder #DDD
-abstract class LeafNodeBuilder #DDD {
-    +<R extends Base> R build()
-    #<R extends Base> R build(BuildContext buildContext)
-    +String serialize()
-}
-class SpecificationBuilder <@JsonDeserialize(using = NodeBuilderDeserializer.class)> {
-    +String specificationId
-    +String name
-    +String startFunctionId
-    --
-    SpecificationBuilder configure(ConfigurationBuilder builder)
-    SpecificationBuilder function(NodeWithIdBuilder builder)
-    Specification end()
-    --
-    NodeBuilder get(String nodeId)
-    --
-    String serialize()
-    String serializeAsYaml()
+abstract class AbstractBuilder
+abstract class LeafNodeBuilder {
+    + <R extends Base> R build()
+    # <R extends Base> R build(BuildContext buildContext)
+    + String serialize()
 }
 
-class ConfigurationBuilder <@JsonDeserialize(using = NodeBuilderDeserializer.class)> {
+class SpecificationBuilder <<@JsonDeserialize(using = NodeBuilderDeserializer.class)>> {
+    + String specificationId
+    + String name
+    + String startFunctionId
+    + SpecificationBuilder configure(ConfigurationBuilder builder)
+    + SpecificationBuilder function(NodeWithIdBuilder builder)
+    + Specification end()
+    + NodeBuilder get(String nodeId)
+    + String serialize()
+    + String serializeAsYaml()
 }
-class SecurityBuilder <@JsonDeserialize(using = NodeBuilderDeserializer.class)> {
-}
-class SpecificationContextBuilder {
-}
 
-NodeBuilderDeserializer -left-> SpecificationBuilder
-<> diamond
-diamond -up "from 0..*" NodeBuilderDeserializer
-diamond -up "to 0..* " NodeBuilderDeserializer
-
-Specification *-- NodeBuilderDeserializer : deserialize()
-LeafNodeBuilder <|-- AbstractBuilder
-ConfigurationBuilder <|-- LeafNodeBuilder
-SecurityBuilder <|-up[bold]-- ConfigurationBuilder
-SpecificationContextBuilder <|-right[bold]- ConfigurationBuilder
-
-SpecificationBuilder <|-- ConfigurationBuilder
-SpecificationBuilder -up-> Specification : end()
-
+class ConfigurationBuilder <<@JsonDeserialize(using = NodeBuilderDeserializer.class)>>
+class SecurityBuilder <<@JsonDeserialize(using = NodeBuilderDeserializer.class)>>
+class SpecificationContextBuilder
 
 class BuildContext {
-    +Map<String, NodeBuilder> nodeBuilderById
-    +Map<String, Object> nodeInstanceById
-    --
-    Map<String, NodeBuilder> nodeBuilderById()
-    NodeBuilder getBuilder(String id)
-    boolean containsBuilder(String id)
-    <R> Map<String, R> nodeInstanceById()
-    <R> R getInstance(String id)
-    boolean containsInstance(String id)
-    void cacheInstance(String id, Object instance)
-    <V extends Base> V cacheInstanceIfAbsent(String key, Function<? super String, V> mappingFunction)
-    --
-    BuildContext fromNodeBuilderById(Map<String, NodeBuilder> nodeBuilderById)
-    static BuildContext empty()
-    static BuildContext of(Map<String, NodeBuilder> nodeBuilderById, Map<String, Object> nodeInstanceById)
+    + Map<String, NodeBuilder> nodeBuilderById
+    + Map<String, Object> nodeInstanceById
+    + Map<String, NodeBuilder> nodeBuilderById()
+    + NodeBuilder getBuilder(String id)
+    + boolean containsBuilder(String id)
+    + <R> Map<String, R> nodeInstanceById()
+    + <R> R getInstance(String id)
+    + boolean containsInstance(String id)
+    + void cacheInstance(String id, Object instance)
+    + <V extends Base> V cacheInstanceIfAbsent(String key, Function<? super String, V> mappingFunction)
+    + {static} BuildContext fromNodeBuilderById(Map<String, NodeBuilder> nodeBuilderById)
+    + {static} BuildContext empty()
+    + {static} BuildContext of(Map<String, NodeBuilder> nodeBuilderById, Map<String, Object> nodeInstanceById)
 }
-
-BuildContext "*"<.."1" BuildContext
 
 class Specification {
-    +String specificationId
-    +String name
-    +Configurations configurations
-    +Node startFunction
-    +Map<String, Node> nodeById
-    --
-    id()
-    name()
-    startFunction()
-    --
-    static Specification create(String specificationId, String name, Node startFunction, Map<String, Node> nodeById)
-    static Specification create(String specificationId, String name, Configurations configurations, Node startFunction, Map<String, Node> nodeById)
-    --
-    static SpecificationBuilder start(String specificationId, String name, String startFunction)
-    static SpecificationBuilder deserialize(String source)
-    static <R extends AbstractBuilder> R deserialize(String source, Class<R> builderClass)
+    + String specificationId
+    + String name
+    + Configurations configurations
+    + Node startFunction
+    + Map<String, Node> nodeById
+    + id()
+    + name()
+    + startFunction()
+    + {static} Specification create(String specificationId, String name, Node startFunction, Map<String, Node> nodeById)
+    + {static} Specification create(String specificationId, String name, Configurations configurations, Node startFunction, Map<String, Node> nodeById)
+    + {static} SpecificationBuilder start(String specificationId, String name, String startFunction)
+    + {static} SpecificationBuilder deserialize(String source)
+    + {static} <R extends AbstractBuilder> R deserialize(String source, Class<R> builderClass)
 }
 
-
 class FlowContextNode <<FlowContext>> {
-    +FlowContext build(BuildContext buildContext)
+    + FlowContext build(BuildContext buildContext)
 }
 
 class SecurityNode <<Security>> {
-    +Security build(BuildContext buildContext)
+    + Security build(BuildContext buildContext)
 }
-
 
 interface Configuration
 interface Configurations {
-    +Map<Class<? extends Configuration>, Configuration> configurationMap
-    --
-    FlowContext flowContext()
-    Security security()
-    --
+    + Map<Class<? extends Configuration>, Configuration> configurationMap
+    + FlowContext flowContext()
+    + Security security()
 }
-interface Configurations.Builder {
-    +Builder add(Configuration configuration)
-    ~void createDefaultConfigurationIfAbsent()
-    +Configurations build()
+
+interface "Configurations.Builder" as ConfigurationsBuilder {
+    + Builder add(Configuration configuration)
+    ~ void createDefaultConfigurationIfAbsent()
+    + Configurations build()
 }
+
 interface FlowContext extends Configuration {
-    String topic()
-    ExecutionContext globalContext()
+    + String topic()
+    + ExecutionContext globalContext()
 }
+
 interface Security {
-    String sslBundleName()
-    List<Identity> identities()
+    + String sslBundleName()
+    + List<Identity> identities()
 }
-interface Base #DDD
-interface Leaf #DDD
+
+interface Base
+interface Leaf
 interface Identity {
-    String id()
+    + String id()
 }
+
 interface JwtIdentity {
-    JwtHeaderClaims headerClaims()
-    JwtClaims claims()
-}
-class ExecutionContext #DDD {
-    ~Services services
-    ~Map<Object, Object> globalState
-    ~Map<String, Object> variables
-    ~Map<Object, Object> state
+    + JwtHeaderClaims headerClaims()
+    + JwtClaims claims()
 }
 
-Specification *.up.> BuildContext : create()
+class ExecutionContext {
+    ~ Services services
+    ~ Map<Object, Object> globalState
+    ~ Map<String, Object> variables
+    ~ Map<Object, Object> state
+}
 
-SpecificationBuilder *.left.> Configurations : create()
-Configurations.Builder *-up- Configurations
-Configurations.Builder *-- Configuration
+NodeBuilderDeserializer --> SpecificationBuilder
+Specification *-- NodeBuilderDeserializer : deserialize()
+LeafNodeBuilder --|> AbstractBuilder
+ConfigurationBuilder --|> LeafNodeBuilder
+SecurityBuilder -up-|> ConfigurationBuilder
+SpecificationContextBuilder -right-|> ConfigurationBuilder
+SpecificationBuilder --|> ConfigurationBuilder
+SpecificationBuilder -up-> Specification : end()
 
-FlowContextNode <|-down- FlowContext
-SpecificationContextBuilder *.down. FlowContextNode
+BuildContext "*" <.. "1" BuildContext
+Specification *..> BuildContext : create()
+SpecificationBuilder *..> Configurations : create()
+ConfigurationsBuilder *-- Configurations
+ConfigurationsBuilder *-- Configuration
 
-SecurityNode <|-- Security
-SecurityBuilder *.up. SecurityNode
-
-ExecutionContext -up-* FlowContext : " Global state"
-Base <|-up- Leaf
-Leaf <|-up- Identity
-Identity *-up- Security
-JwtIdentity <|-up- Identity
-
-Configuration <|-right- Security
+FlowContextNode --|> FlowContext
+SpecificationContextBuilder *.. FlowContextNode
+SecurityNode --|> Security
+SecurityBuilder *.. SecurityNode
+ExecutionContext --* FlowContext : "Global state"
+Base <|-- Leaf
+Leaf <|-- Identity
+Identity *-- Security
+JwtIdentity --|> Identity
+Configuration <|-- Security
 
 @enduml

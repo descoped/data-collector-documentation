@@ -10,6 +10,8 @@
 
 The Data Collector uses JPMS (module system) for strong encapsulation, security and maintenance.
 
+_Modules in build order:_
+
 [cols="<,^,^,<", options="header"]
 |===
 |Module name |Status |Badges |Description
@@ -24,15 +26,35 @@ image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-col
 image:https://snyk.io/test/github/descoped/data-collector-api/badge.svg[Snyk Security Score]
 |Builders and interfaces
 
-|https://github.com/descoped/data-collector-core[data-collector-core]
+|https://github.com/descoped/data-collector-server-base[data-collector-server-base]
 |Stable
-|image:https://img.shields.io/github/actions/workflow/status/descoped/data-collector-core/coverage-and-sonar-analysis.yml[Build Status] +
-image:https://img.shields.io/github/v/tag/descoped/data-collector-core[Latest Tag] +
+|image:https://img.shields.io/github/actions/workflow/status/descoped/data-collector-server-base/coverage-and-sonar-analysis.yml[Build Status] +
+image:https://img.shields.io/github/v/tag/descoped/data-collector-server-base[Latest Tag] +
 image:https://img.shields.io/badge/renovate-enabled-brightgreen.svg[Renovate] +
-image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-core&metric=alert_status[Quality Gate Status] +
-image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-core&metric=coverage[Coverage] +
-image:https://snyk.io/test/github/descoped/data-collector-core/badge.svg[Snyk Security Score]
-|Graph handlers and Executor
+image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-server-base&metric=alert_status[Quality Gate Status] +
+image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-server-base&metric=coverage[Coverage] +
+image:https://snyk.io/test/github/descoped/data-collector-server-base/badge.svg[Snyk Security Score]
+|Data collector application
+
+|https://github.com/descoped/data-collector-testutils[data-collector-testutils]
+|Stable
+|image:https://img.shields.io/github/actions/workflow/status/descoped/data-collector-testutils/coverage-and-sonar-analysis.yml[Build Status] +
+image:https://img.shields.io/github/v/tag/descoped/data-collector-testutils[Latest Tag] +
+image:https://img.shields.io/badge/renovate-enabled-brightgreen.svg[Renovate] +
+image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-testutils&metric=alert_status[Quality Gate Status] +
+image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-testutils&metric=coverage[Coverage] +
+image:https://snyk.io/test/github/descoped/data-collector-testutils/badge.svg[Snyk Security Score]
+|Test server with mock data
+
+|https://github.com/descoped/data-collector-connector-content-stream-discarding[data-collector-connector-content-stream-discarding]
+|Only used by tests
+|image:https://img.shields.io/github/actions/workflow/status/descoped/data-collector-connector-content-stream-discarding/coverage-and-sonar-analysis.yml[Build Status] +
+image:https://img.shields.io/github/v/tag/descoped/data-collector-connector-content-stream-discarding[Latest Tag] +
+image:https://img.shields.io/badge/renovate-enabled-brightgreen.svg[Renovate] +
+image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-connector-content-stream-discarding&metric=alert_status[Quality Gate Status] +
+image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-connector-content-stream-discarding&metric=coverage[Coverage] +
+image:https://snyk.io/test/github/descoped/data-collector-connector-content-stream-discarding/badge.svg[Snyk Security Score]
+|Connector for Rawdata Discarding
 
 |https://github.com/descoped/data-collector-connector-content-stream-rawdata[data-collector-connector-content-stream-rawdata]
 |Stable
@@ -44,15 +66,15 @@ image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-col
 image:https://snyk.io/test/github/descoped/data-collector-connector-content-stream-rawdata/badge.svg[Snyk Security Score]
 |Connector for Rawdata Streams
 
-|https://github.com/descoped/data-collector-server-base[data-collector-server-base]
+|https://github.com/descoped/data-collector-core[data-collector-core]
 |Stable
-|image:https://img.shields.io/github/actions/workflow/status/descoped/data-collector-server-base/coverage-and-sonar-analysis.yml[Build Status] +
-image:https://img.shields.io/github/v/tag/descoped/data-collector-server-base[Latest Tag] +
+|image:https://img.shields.io/github/actions/workflow/status/descoped/data-collector-core/coverage-and-sonar-analysis.yml[Build Status] +
+image:https://img.shields.io/github/v/tag/descoped/data-collector-core[Latest Tag] +
 image:https://img.shields.io/badge/renovate-enabled-brightgreen.svg[Renovate] +
-image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-server-base&metric=alert_status[Quality Gate Status] +
-image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-server-base&metric=coverage[Coverage] +
-image:https://snyk.io/test/github/descoped/data-collector-server-base/badge.svg[Snyk Security Score]
-|Data collector application
+image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-core&metric=alert_status[Quality Gate Status] +
+image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-core&metric=coverage[Coverage] +
+image:https://snyk.io/test/github/descoped/data-collector-core/badge.svg[Snyk Security Score]
+|Graph handlers and Executor
 
 |https://github.com/descoped/data-collector-docker[data-collector-docker]
 |Work in progress
@@ -60,16 +82,6 @@ image:https://snyk.io/test/github/descoped/data-collector-server-base/badge.svg[
 image:https://img.shields.io/github/v/tag/descoped/data-collector-docker[Latest Tag] +
 image:https://img.shields.io/badge/renovate-enabled-brightgreen.svg[Renovate] +
 |Docker image with embedded web server
-
-|https://github.com/descoped/data-collector-testutils[data-collector-testutils]
-|Stable
-|image:https://img.shields.io/github/actions/workflow/status/descoped/data-collector-testutils/coverage-and-sonar-analysis.yml[Build Status] +
-image:https://img.shields.io/github/v/tag/descoped/data-collector-testutils[Latest Tag] +
-image:https://img.shields.io/badge/renovate-enabled-brightgreen.svg[Renovate] +
-image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-testutils&metric=alert_status[Quality Gate Status] +
-image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-testutils&metric=coverage[Coverage] +
-image:https://snyk.io/test/github/descoped/data-collector-testutils/badge.svg[Snyk Security Score]
-|Test server with mock data
 
 |https://github.com/descoped/data-collector-samples[data-collector-samples]
 |Stable
