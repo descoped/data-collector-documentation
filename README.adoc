@@ -54,11 +54,11 @@ endif::[]
 
 ifndef::env-github[]
 :leveloffset: +1
-include::gettingstarted.adoc[]
-include::architecture.adoc[]
-include::administration.adoc[]
-include::rest-api.adoc[]
-include::developer-guide.adoc[]
+include::docs/gettingstarted.adoc[]
+include::docs/architecture.adoc[]
+include::docs/administration.adoc[]
+include::docs/rest-api.adoc[]
+include::docs/developer-guide.adoc[]
 :leveloffset: -1
 endif::[]
 

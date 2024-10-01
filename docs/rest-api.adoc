@@ -19,7 +19,8 @@ endif::[]
 
 ifndef::env-github[]
 == Sequence diagram
-plantuml::puml/rest-sequence-diagram.puml[format=svg, alt="Data Read Success", max-width=1024]
+// plantuml::puml/rest-sequence-diagram.puml[format=svg, alt="Data Read Success", max-width=1024]
+image::diagrams/rest-sequence-diagram.svg[alt="Data Read Success",max-width=1024]
 endif::[]
 
 

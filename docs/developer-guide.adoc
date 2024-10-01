@@ -12,7 +12,7 @@ endif::[]
 
 == Diagrams
 
-ifdef::env-github[]
+// ifdef::env-github[]
 == Domain Builder Class diagram
 image::diagrams/dsl-builder-class-diagram.svg[alt="Domain Builder Class diagram", max-width=1024, link="diagrams/dsl-builder-class-diagram.svg"]
 
@@ -31,25 +31,25 @@ image::diagrams/specification-builder-class-diagram.svg[alt="Http Builder Class 
 == Http Builder Class diagram
 image::diagrams/http-builder-class-diagram.svg[alt="Http Builder Class Diagram", max-width=1024, link="diagrams/http-builder-class-diagram.svg"]
 
-endif::[]
+// endif::[]
 
-ifndef::env-github[]
-== Domain Builder Model Class diagram
-plantuml::puml/dsl-builder-class-diagram.puml[format=svg, alt="Domain Builder Class diagram", max-width=1024, link="dsl-builder-class-diagram.svg"]
-
-== Domain API Class diagram
-plantuml::puml/dsl-api-class-diagram.puml[format=svg, alt="Domain Model API diagram", max-width=1024, link="dsl-api-class-diagram.svg"]
-
-== Domain Handler Class diagram
-plantuml::puml/dsl-handler-class-diagram.puml[format=svg, alt="Domain Handler Class diagram", max-width=1024, link="dsl-handler-class-diagram.svg"]
-
-== Builder Class diagram
-plantuml::puml/builder-class-diagram.puml[format=svg, alt="Builder Class Diagram", max-width=1024, link="builder-class-diagram.svg"]
-
-== Specification Builder Class diagram
-plantuml::puml/specification-builder-class-diagram.puml[format=svg, alt="Http Builder Class Diagram", max-width=1024, link="specification-builder-class-diagram.svg"]
-
-== Http Builder Class diagram
-plantuml::puml/http-builder-class-diagram.puml[format=svg, alt="Http Builder Class Diagram", max-width=1024, link="http-builder-class-diagram.svg"]
-
-endif::[]
+// ifndef::env-github[]
+// == Domain Builder Model Class diagram
+// plantuml::puml/dsl-builder-class-diagram.puml[format=svg, alt="Domain Builder Class diagram", max-width=1024, link="dsl-builder-class-diagram.svg"]
+//
+// == Domain API Class diagram
+// plantuml::puml/dsl-api-class-diagram.puml[format=svg, alt="Domain Model API diagram", max-width=1024, link="dsl-api-class-diagram.svg"]
+//
+// == Domain Handler Class diagram
+// plantuml::puml/dsl-handler-class-diagram.puml[format=svg, alt="Domain Handler Class diagram", max-width=1024, link="dsl-handler-class-diagram.svg"]
+//
+// == Builder Class diagram
+// plantuml::puml/builder-class-diagram.puml[format=svg, alt="Builder Class Diagram", max-width=1024, link="builder-class-diagram.svg"]
+//
+// == Specification Builder Class diagram
+// plantuml::puml/specification-builder-class-diagram.puml[format=svg, alt="Http Builder Class Diagram", max-width=1024, link="specification-builder-class-diagram.svg"]
+//
+// == Http Builder Class diagram
+// plantuml::puml/http-builder-class-diagram.puml[format=svg, alt="Http Builder Class Diagram", max-width=1024, link="http-builder-class-diagram.svg"]
+//
+// endif::[]
