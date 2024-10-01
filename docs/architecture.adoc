@@ -16,11 +16,11 @@ The Data Collector uses JPMS (module system) for strong encapsulation, security 
 
 |https://github.com/descoped/data-collector-api[data-collector-api]
 |Stable
-|image:https://img.shields.io/github/actions/workflow/status/descoped/data-collector-api/coverage-and-sonar-analysis.yml[Build Status]
-image:https://img.shields.io/github/v/tag/descoped/data-collector-api[Latest Tag]
-image:https://img.shields.io/badge/renovate-enabled-brightgreen.svg[Renovate]
-image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-api&metric=alert_status[Quality Gate Status]
-image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-api&metric=coverage[Coverage]
+|image:https://img.shields.io/github/actions/workflow/status/descoped/data-collector-api/coverage-and-sonar-analysis.yml[Build Status] +
+image:https://img.shields.io/github/v/tag/descoped/data-collector-api[Latest Tag] +
+image:https://img.shields.io/badge/renovate-enabled-brightgreen.svg[Renovate] +
+image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-api&metric=alert_status[Quality Gate Status] +
+image:https://sonarcloud.io/api/project_badges/measure?project=descoped_data-collector-api&metric=coverage[Coverage] +
 image:https://snyk.io/test/github/descoped/data-collector-api/badge.svg[Snyk Security Score]
 |Builders and interfaces
 
